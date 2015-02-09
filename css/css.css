@@ -1,0 +1,10 @@
+.center-y{
+	vertical-align:middle;
+}
+.center-x{ 
+		text-align:center;
+}
+.centering{
+float:none;
+margin:0 auto
+}
