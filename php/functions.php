@@ -1,5 +1,5 @@
 <?php
-
+if(!isset($isIndex))die('');
 // Strips nasty tags from code..
 function cleanEvilTags($data) {
   $data = preg_replace("/javascript/i", "j&#097;v&#097;script",$data);
