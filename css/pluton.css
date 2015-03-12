@@ -87,3 +87,7 @@
 .icon-chart-bar:before { content: '\e80c'; } /* '' */
 .icon-phone:before { content: '\e824'; } /* '' */
 .icon-megaphone:before { content: '\e817'; } /* '' */
+body{
+  background-color:#FECE1A;
+  color: black;
+}

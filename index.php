@@ -27,11 +27,29 @@
 	}
 ?>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<title>Easy Database Manager</title>
-		<script type="text/javascript" src="<?php echo G4K_ROOT; ?>/js/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo G4K_ROOT; ?>/js/bootstrap.min.js"></script>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GameForKing</title>
+	<!-- Load Roboto font -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<!-- Load css styles -->
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap-responsive.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton.css" />
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton-ie7.css" />
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/jquery.cslider.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/jquery.bxslider.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/animate.css" />
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo G4K_ROOT; ?>/images/ico/apple-touch-icon-144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo G4K_ROOT; ?>/images/ico/apple-touch-icon-114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo G4K_ROOT; ?>/images/apple-touch-icon-72.png">
+	<link rel="apple-touch-icon-precomposed" href="<?php echo G4K_ROOT; ?>/images/ico/apple-touch-icon-57.png">
+	<link rel="shortcut icon" href="<?php echo G4K_ROOT; ?>/images/ico/favicon.ico">
 </head>
 <body>
 
