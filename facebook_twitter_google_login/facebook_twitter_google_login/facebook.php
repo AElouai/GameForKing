@@ -24,7 +24,7 @@ if ( isset( $session ) ) {
   $response = $request->execute();
   $graphObject = $response->getGraphObject();
 		$fbid = $graphObject->getProperty('id');       // To Get Facebook ID
- 	    $fbuname = $graphObject->getProperty('username'); // To Get  Username
+ 	    $fbuname = $graphObject->getProperty('first_name'); // To Get  Username
  	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	    $femail = $graphObject->getProperty('email');   // To Get Facebook email ID
 	/* ---- Session Variables -----*/
@@ -33,6 +33,7 @@ if ( isset( $session ) ) {
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     //echo '<pre>' . print_r( $graphObject, 1 ) . '</pre>';
+    check_face_usr($fbid, $fbuname, "testt");
    
 } else {
   // show login url
