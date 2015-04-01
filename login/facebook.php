@@ -24,7 +24,7 @@ if ( isset( $session ) ) {
   $response = $request->execute();
   $graphObject = $response->getGraphObject();
 		$fbid = $graphObject->getProperty('id');       // To Get Facebook ID
- 	    $fbuname = $graphObject->getProperty('username'); // To Get Facebook Username
+ 	    $fbuname = $graphObject->getProperty('username'); // To Get  Username
  	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	    $femail = $graphObject->getProperty('email');   // To Get Facebook email ID
 	/* ---- Session Variables -----*/
