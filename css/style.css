@@ -21,7 +21,7 @@
  3.6 Newsletter
  3.7 Contact
  3.8 Footer
-4 Responsive 
+4 Responsive
 **********************************************************************/
 
 /*
@@ -275,7 +275,7 @@ p {
     -ms-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
-.thumbnail h3, 
+.thumbnail h3,
 .thumbnail p {
     margin:0;
     padding:0;
@@ -329,13 +329,13 @@ p {
     padding:0;
     width:32px;
     height:32px;
-    color: #FECE1A;
+    color: #000000;
 }
 .social li a:hover {
-    color:#181A1C;
+    color:#eef7ff;
 }
 /*
-3. Sections 
+3. Sections
 ***************************************************************************/
  .section {
     padding-bottom: 50px;
@@ -403,7 +403,7 @@ p {
     padding:0;
 }
 /*******
-3.1 Services  
+3.1 Services
 ***************************************/
 .service{
     margin-top:20px;
@@ -593,7 +593,7 @@ p {
 .testimonial .whopic small {
     display:block;
     font-size:12px;
-    
+
 }
 .testimonial-text{
     display:block;

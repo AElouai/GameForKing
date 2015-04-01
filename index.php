@@ -5,8 +5,8 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	$routes = array('home',
-					'login',
-					'logout');
+					'signin',
+					'signout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
 
@@ -32,7 +32,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GameForKing</title>
 	<!-- Load Roboto font -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link hreff='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- Load css styles -->
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap-responsive.css" />
@@ -56,13 +56,13 @@
 	<?php
 	if(in_array($action,$routes))
 	{
-	require_once("./php/theme_header.php");
-	require_once("./php/".$action.".php");
-	require_once("./php/theme_footer.php");
+		require_once("./php/theme_header.php");
+		require_once("./php/".$action.".php");
+		require_once("./php/theme_footer.php");
 	}
 	else
 	{
-	require_once("./php/error.php");
+		require_once("./php/error.php");
 	}
 	?>
 

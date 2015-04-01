@@ -3,12 +3,6 @@ if(!isset($isIndex))die('');
 ?>
 <div class="container">
 	<div class="span9 center contact-info">
-		<p>123 Fifth Avenue, 12th,Belgrade,SRB 11000</p>
-		<p class="info-mail">ali.elouai.pro@gmail.com</p>
-		<p>+212 0634 338 567</p>
-		<div class="title">
-			<h3>We Are Social</h3>
-		</div>
 		</div>
 			<div class="row-fluid centered">
 				<ul class="social">
