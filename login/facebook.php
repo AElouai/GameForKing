@@ -13,7 +13,7 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
 FacebookSession::setDefaultApplication( '424231481079928','1f06e98ee85812facf31905694cab3ae');
-    $helper = new FacebookRedirectLoginHelper('http://105.152.165.166:800/step1/1353/test.php');
+    $helper = new FacebookRedirectLoginHelper('http://105.152.165.166:800/step1/test.php');
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
