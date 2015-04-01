@@ -37,6 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap-responsive.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/G4K-style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton.css" />
 	<!--[if IE 7]>
 		<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton-ie7.css" />

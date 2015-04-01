@@ -1,0 +1,17 @@
+#connexion{
+  display:none;
+  position:absolute;
+  background:white;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+#connexion>div{
+  display: table;
+  margin: 0 auto;
+}
+#signup_content{
+  display:none;
+}
+.tab-elm{
+  background:white;
+}
