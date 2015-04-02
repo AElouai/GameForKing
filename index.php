@@ -5,9 +5,14 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	$routes = array('home',
+<<<<<<< HEAD
 					'start',
 					'login',
 					'logout');
+=======
+					'signin',
+					'signout');
+>>>>>>> 830ff9ade3c1217049b8028f8fcf9d4674659549
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
 
@@ -33,11 +38,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GameForKing</title>
 	<!-- Load Roboto font -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link hreff='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- Load css styles -->
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/bootstrap-responsive.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/G4K-style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton.css" />
 	<!--[if IE 7]>
 		<link rel="stylesheet" type="text/css" href="<?php echo G4K_ROOT; ?>/css/pluton-ie7.css" />
@@ -57,16 +63,22 @@
 	<?php
 	if(in_array($action,$routes))
 	{
+<<<<<<< HEAD
 	if($action === "start")
 		require_once("./php/theme_header_Start.php");
 	else
 		require_once("./php/theme_header.php");
 	require_once("./php/".$action.".php");
 	require_once("./php/theme_footer.php");
+=======
+		require_once("./php/theme_header.php");
+		require_once("./php/".$action.".php");
+		require_once("./php/theme_footer.php");
+>>>>>>> 830ff9ade3c1217049b8028f8fcf9d4674659549
 	}
 	else
 	{
-	require_once("./php/error.php");
+		require_once("./php/error.php");
 	}
 	?>
 

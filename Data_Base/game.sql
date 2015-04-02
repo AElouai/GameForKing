@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 20 Mars 2015 à 00:51
+-- Généré le :  Mer 01 Avril 2015 à 17:39
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -98,24 +98,30 @@ CREATE TABLE IF NOT EXISTS `question` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` bigint(11) NOT NULL AUTO_INCREMENT,
+  `Fuid` bigint(20) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
   `login` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(25) DEFAULT NULL,
   `total_score` int(11) NOT NULL,
   `creation_date` date NOT NULL,
   `week_score` int(11) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id_user`, `email`, `login`, `password`, `total_score`, `creation_date`, `week_score`) VALUES
-(1, '', 'test', 'hgjkl', 54654, '2015-03-11', 55465),
-(2, '', 'test2', 'ghj', 9787, '2015-03-17', 898),
-(3, '', 'test3', 'hgjkl', 54654, '2015-03-11', 55465),
-(4, '', 'test4', 'ghj', 9787, '2015-03-17', 898);
+INSERT INTO `users` (`id_user`, `Fuid`, `email`, `login`, `password`, `total_score`, `creation_date`, `week_score`) VALUES
+(1, 9, 'emai1', 'test', '123', 54654, '2015-03-11', 55465),
+(2, 6, 'eklma', 't', 'ghj', 9787, '2015-03-17', 898),
+(3, 4, 'email3', 'test3', 'hgjkl', 54654, '2015-03-11', 55465),
+(4, 3, 'email4', 'test4', 'ghj', 9787, '2015-03-17', 898),
+(5, 12, 'test_face', 'test_login', NULL, 0, '0000-00-00', 0),
+(6, 1, 'email', 'tjttjkl', NULL, 0, '0000-00-00', 0),
+(7, 14, 'eklma', 't', NULL, 0, '0000-00-00', 0),
+(9, 78, 'tetttt', 'doha', NULL, 0, '2015-04-01', 0),
+(10, 794080757343065, 'testt', 'Soukaina', NULL, 0, '2015-04-01', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

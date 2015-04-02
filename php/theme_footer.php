@@ -3,12 +3,6 @@ if(!isset($isIndex))die('');
 ?>
 <div class="container">
 	<div class="span9 center contact-info">
-		<p>123 Fifth Avenue, 12th,Belgrade,SRB 11000</p>
-		<p class="info-mail">ali.elouai.pro@gmail.com</p>
-		<p>+212 0634 338 567</p>
-		<div class="title">
-			<h3>We Are Social</h3>
-		</div>
 		</div>
 			<div class="row-fluid centered">
 				<ul class="social">
@@ -47,6 +41,7 @@ if(!isset($isIndex))die('');
 		<i class="icon-up-open"></i>
 	</a>
 </div>
+</div><!-- extra div i opened in theme_header, had to close it here -->
 <!-- ScrollUp button end -->
 <!-- Include javascript -->
 <script src="<?php echo G4K_ROOT; ?>/js/jquery.js"></script>
@@ -64,3 +59,4 @@ if(!isset($isIndex))die('');
 <script src="<?php echo G4K_ROOT; ?>/js/respond.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="<?php echo G4K_ROOT; ?>/js/app.js"></script>
+<script type="text/javascript" src="<?php echo G4K_ROOT; ?>/js/script.js"></script>
