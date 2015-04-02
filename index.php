@@ -5,6 +5,7 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	$routes = array('home',
+					'start',
 					'login',
 					'logout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
@@ -23,7 +24,7 @@
 
 	if(empty($action))
 	{
-		$action = "home";
+		$action = "start";
 	}
 ?>
 <html>
@@ -56,7 +57,10 @@
 	<?php
 	if(in_array($action,$routes))
 	{
-	require_once("./php/theme_header.php");
+	if($action === "start")
+		require_once("./php/theme_header_Start.php");
+	else
+		require_once("./php/theme_header.php");
 	require_once("./php/".$action.".php");
 	require_once("./php/theme_footer.php");
 	}
