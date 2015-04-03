@@ -34,8 +34,8 @@ function multiDimensionalArrayMap($func,$arr) {
 
 function redirect($location)
 {
-	echo "<script type='text/javascript'>window.location='".G4K_ROOT.$location."';</script>";
-	echo "<a href='".G4K_ROOT.$location."'><p>if you are not redirected. please click here.</p></a>";
+	echo "<script type='text/javascript'>window.location='".$location."';</script>";
+	echo "<a href='".$location."'><p>if you are not redirected. please click here.</p></a>";
 }
 
 function setAlert($alert_type,$alert_content){

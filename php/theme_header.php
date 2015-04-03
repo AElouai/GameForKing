@@ -98,7 +98,7 @@ require_once('User.class.php');
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="/"><img src="img/logo.png"></a>
+				<a href="/"><img src="/img/logo.png"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
@@ -110,7 +110,7 @@ require_once('User.class.php');
 						<div id='profile'>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 								<div id='profile-img'>
-									<img src='profile-pictures/default.jpg'>
+									<img src='/profile-pictures/default.jpg'>
 								</div>
 							</a>
 		          <ul class="dropdown-menu" role="menu">
