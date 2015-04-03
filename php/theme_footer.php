@@ -1,7 +1,9 @@
 <?php
 if(!isset($isIndex))die('');
 ?>
-</div>
-<div>
-footer here(to edit this ,head out to php/theme_footer.php)
+</div><!-- this ends container for content DO NOT REMOVE, thank you-->
+<div class="footer navbar-fixed-bottom">
+    <div class="container">
+      GameForKing.com &copy; 2015
+    </div>
 </div>
