@@ -1,5 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
+require_once('User.class.php');
 ?>
 
 	<div class="modal fade" id="connexion">
@@ -105,9 +106,24 @@ if(!isset($isIndex))die('');
 					<li><a href="#">something else</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<?php if(User::isConnected()){ ?>
+						<div id='profile'>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<div id='profile-img'>
+									<img src='profile-pictures/default.jpg'>
+								</div>
+							</a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="/profile/edit"><i class="fa fa-pencil"></i>Edit Profile</a></li>
+		            <li><a href="/profile/view"><i class="fa fa-eye"></i>View Profile</a></li>
+		            <li class="divider"></li>
+		            <li><a href="/signout"><i class='fa fa-sign-out'></i>Logout</a></li>
+		          </ul>
+						</div>
+					<?php } else{ ?>
 					<li><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#connexion">
-						<i class="fa fa-sign-in"></i>Connection
-					</a></li>
+						<i class="fa fa-sign-in"></i>Connection</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

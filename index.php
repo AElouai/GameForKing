@@ -1,10 +1,17 @@
 <?php
+/*
+*This  is file should be locked.
+*you can only add routes to the $routes array, don't change anything else
+*if you want to change somehting in the theme consider visiting php/theme_header and php/theme_footer
+*/
 	session_start();
 	$isIndex=true;
 	define('G4K_ROOT',substr($_SERVER['PHP_SELF'],0,strrpos($_SERVER['PHP_SELF'],'/')));
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	$routes = array('home',
+								'profile',
+								'game',
 								'signup	',
 								'signin',
 								'signout');

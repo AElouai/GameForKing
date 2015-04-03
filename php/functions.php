@@ -31,3 +31,33 @@ function multiDimensionalArrayMap($func,$arr) {
   }
   return $newArr;
 }
+
+function setAlert($alert_type,$alert_content){
+  $_SESSION['alert_type'] = $alert_type;
+  $_SESSION['alert_content'] = $alert_content;
+}
+
+function printAlert(){
+  $alert_type = $_SESSION['alert_type'];//TODO clean from bad input
+  $alert_content = $_SESSION['alert_content'];//TODO clean from bad input
+  if(isset($_SESSION['alert_type'])){
+?>
+<script type='text/javascript'>
+  $(document).ready(function(){
+    var $alertBox = $('<div>',{
+      class:'alert custom-alert alert-dismissible alert-<?php echo $alert_type ?>'
+    });
+    var $alertExit = $('<button>',{
+      type:'button',
+      class:'close',
+      'data-dismiss':'alert'
+    });$alertExit.html('×');
+    $alertExit.appendTo($alertBox);
+    $alertBox.append('<?php echo $alert_content ?>');
+    $alertBox.appendTo('body');
+    $alertBox.slideDown();
+  });
+</script>
+<?php
+  }
+}

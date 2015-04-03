@@ -3,3 +3,25 @@
   margin-left:5%;
   margin-right:5%;
 }
+.fa{
+  margin-right:5px;
+}
+
+.custom-alert{
+  position:absolute;
+  display:none;
+  width:100%;
+}
+
+#profile{
+
+}
+
+#profile-img{
+  display:block;
+}
+
+#profile-img img{
+  display:inline-block;
+  height:60px;
+}
