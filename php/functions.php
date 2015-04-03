@@ -32,15 +32,25 @@ function multiDimensionalArrayMap($func,$arr) {
   return $newArr;
 }
 
+function redirect($location)
+{
+	echo "<script type='text/javascript'>window.location='".G4K_ROOT.$location."';</script>";
+	echo "<a href='".G4K_ROOT.$location."'><p>if you are not redirected. please click here.</p></a>";
+}
+
 function setAlert($alert_type,$alert_content){
-  $_SESSION['alert_type'] = $alert_type;
-  $_SESSION['alert_content'] = $alert_content;
+  if(!isset($_SESSION['alert_type']) || empty($_SESSION['alert_type'])){
+    $_SESSION['alert_type'] = $alert_type;
+    $_SESSION['alert_content'] = $alert_content;
+  }
 }
 
 function printAlert(){
+  if(isset($_SESSION['alert_type'])){
   $alert_type = $_SESSION['alert_type'];//TODO clean from bad input
   $alert_content = $_SESSION['alert_content'];//TODO clean from bad input
-  if(isset($_SESSION['alert_type'])){
+  unset($_SESSION['alert_type']);
+  unset($_SESSION['alert_content']);
 ?>
 <script type='text/javascript'>
   $(document).ready(function(){
