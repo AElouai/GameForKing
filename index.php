@@ -35,12 +35,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Game For King</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game For King</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bootstrap-social.min.css">
     <link rel="stylesheet" href="/css/style.css">
+		<!--[if lt IE 9]>
+			<script src="/js/html5shiv.min.js"></script>
+			<script src="/js/respond.min.js"></script>
+    <![endif]-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   </head>
