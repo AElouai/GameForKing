@@ -1,8 +1,8 @@
 <?php
 if(!isset($isIndex))die('');
 require_once('User.class.php');
+printAlert();//let's print alerts
 ?>
-
 	<div class="modal fade" id="connexion">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -12,8 +12,8 @@ require_once('User.class.php');
 				</div>
 				<div class="modal-body">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-						<li><a href="#signup" data-toggle="tab">Sign Up</a></li>
+						<li class="active"><a href="#signin" data-toggle="tab">Sign in</a></li>
+						<li><a href="#signup" data-toggle="tab">Sign up</a></li>
 					</ul>
 					<div id="tabContent" class="tab-content">
 						<div class="tab-pane fade active in" id="signin">
@@ -26,16 +26,16 @@ require_once('User.class.php');
 									<div class="form-group">
 										<label for="si-inputEmail" class="col-lg-2 control-label">Email</label>
 										<div class="col-lg-10">
-											<input type="text" class="form-control" id="si-inputEmail" placeholder="Email">
+											<input type="text" class="form-control" name="email" id="si-inputEmail" placeholder="Email">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="si-inputPassword" class="col-lg-2 control-label">Password</label>
 										<div class="col-lg-10">
-											<input type="password" class="form-control" id="si-inputPassword" placeholder="Password">
+											<input type="password" class="form-control" name="password" id="si-inputPassword" placeholder="Password">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox">Remember me
+													<input type="checkbox" name="remember">Remember me
 												</label>
 											</div>
 										</div>
@@ -58,19 +58,19 @@ require_once('User.class.php');
 									<div class="form-group">
 										<label for="su-inputEmail" class="col-lg-2 control-label">Email</label>
 										<div class="col-lg-10">
-											<input type="text" class="form-control" id="su-inputEmail" placeholder="Email">
+											<input type="text" class="form-control" name="email" id="su-inputEmail" placeholder="Email">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="su-inputPassword" class="col-lg-2 control-label">Password</label>
 										<div class="col-lg-10">
-											<input type="password" class="form-control" id="su-inputPassword" placeholder="Password">
+											<input type="password" class="form-control" name="password" id="su-inputPassword" placeholder="Password">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="su-inputPassword2" class="col-lg-2 control-label">Confirm Password</label>
 										<div class="col-lg-10">
-											<input type="password" class="form-control" id="su-inputPassword2" placeholder="Confirm Password">
+											<input type="password" class="form-control" name="password2" id="su-inputPassword2" placeholder="Confirm Password">
 										</div>
 									</div>
 									<div class="form-group">

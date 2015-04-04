@@ -8,6 +8,7 @@
 	$isIndex=true;
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
+	require_once('./php/database.php');
 	$routes = array('home',
 								'profile',
 								'game',

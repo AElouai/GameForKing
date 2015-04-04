@@ -16,6 +16,10 @@ function cleanEvilTags($data) {
   return strip_tags(trim($data));
 }
 
+function G4K_MD5($input){
+  return md5("d7a".$input."s05");//this is salted md5. to make it harder for hackers :)
+}
+
 // Cleans output data..
 function cleanData($data) {
   $data = str_replace(' & ', ' &amp; ', $data);
@@ -32,11 +36,10 @@ function multiDimensionalArrayMap($func,$arr) {
   return $newArr;
 }
 
-function redirect($location)
-{
-	echo "<script type='text/javascript'>window.location='".$location."';</script>";
-	echo "<a href='".$location."'><p>if you are not redirected. please click here.</p></a>";
-}
+function redirect($location){ ?>
+	<script type='text/javascript'>window.location.replace('<?php echo $location; ?>');</script>
+	<a href='<?php echo $location; ?>'><p>if you are not redirected. please click here.</p></a>
+<?php }
 
 function setAlert($alert_type,$alert_content){
   if(!isset($_SESSION['alert_type']) || empty($_SESSION['alert_type'])){
@@ -46,11 +49,11 @@ function setAlert($alert_type,$alert_content){
 }
 
 function printAlert(){
-  if(isset($_SESSION['alert_type'])){
+  if(!empty($_SESSION['alert_type'])){
   $alert_type = $_SESSION['alert_type'];//TODO clean from bad input
   $alert_content = $_SESSION['alert_content'];//TODO clean from bad input
-  unset($_SESSION['alert_type']);
-  unset($_SESSION['alert_content']);
+  $_SESSION['alert_type'] = '';
+  $_SESSION['alert_content'] = '';
 ?>
 <script type='text/javascript'>
   $(document).ready(function(){
