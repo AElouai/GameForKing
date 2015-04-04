@@ -3,7 +3,7 @@ if(!isset($isIndex))die('');
 ?>
 <div class="row">
   <div class="col-xs-12 col-md-2 player" id="player1">
-    <img src="/profile-pictures/default.jpg">
+    <img src="/profile-pictures/default-0.jpg">
     <p>Gameforking guy</p>
     <div class="progress">
       <div class="progress-bar progress-bar-success" style="width: 90%"></div>
@@ -18,7 +18,7 @@ if(!isset($isIndex))die('');
     </div>
   </div>
   <div class="col-xs-12 col-md-2 player" id="player2">
-    <img src="/profile-pictures/default.jpg">
+    <img src="/profile-pictures/default-1.jpg">
     <p>Somebody else</p>
     <div class="progress">
       <div class="progress-bar progress-bar-success" style="width: 60%"></div>

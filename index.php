@@ -48,6 +48,12 @@
     <![endif]-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<?php if($action=="profile"){ ?>
+				<link rel="stylesheet" href="/css/profile-style.css">
+		<?php }else if($action=="go"){ ?>
+			<link rel="stylesheet" href="/css/go-style.css">
+			<script type="text/javascript" src="/js/go.js"></script>
+		<?php } ?>
   </head>
 <body>
 

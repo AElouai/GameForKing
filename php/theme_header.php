@@ -102,7 +102,7 @@ printAlert();//let's print alerts
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Something</a></li>
+					<li class="active"><a href="/go">Play</a></li>
 					<li><a href="#">something else</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -110,7 +110,7 @@ printAlert();//let's print alerts
 						<div id='profile'>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 								<div id='profile-img'>
-									<img src='/profile-pictures/default.jpg'>
+									<img src='/profile-pictures/default-4.jpg'>
 								</div>
 							</a>
 		          <ul class="dropdown-menu" role="menu">
