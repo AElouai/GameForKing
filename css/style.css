@@ -38,7 +38,7 @@
   padding:0;
   background-color:#eeeeee;
   border: 10px solid #eeeeee;
-  border-bottom: 45px solid #eeeeee;
+  border-bottom: 10px solid #eeeeee;
   -webkit-box-shadow: 3px 3px 3px #777;
   -moz-box-shadow: 3px 3px 3px #777;
   box-shadow: 3px 3px 3px #777;
@@ -52,4 +52,17 @@
   text-align: center;
   width: 100%;
   color: #888;
+}
+
+#gameContainer{
+  background-color:#eeeeee;
+  border: 10px solid #eeeeee;
+  border-bottom: 0;
+  -webkit-box-shadow: 3px 3px 3px #777;
+  -moz-box-shadow: 3px 3px 3px #777;
+  box-shadow: 3px 3px 3px #777;
+}
+
+#game{
+  height:500px;
 }

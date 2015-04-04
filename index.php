@@ -11,6 +11,7 @@
 	require_once('./php/database.php');
 	$routes = array('home',
 								'profile',
+								'go',
 								'game',
 								'signup	',
 								'signin',
