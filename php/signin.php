@@ -17,10 +17,11 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   }
   if(User::signin(Array('email'=>$email,'password'=>$password,'link'=>$link))){
     setAlert('success','hello '.User::getFullName().', Welcome aboard!');
+    redirect('/game');
   }
   else{
     setAlert('danger','could not connect with the given credentials.');
-    redirect('/game');
+    redirect('/home');
   }
 }
 else{

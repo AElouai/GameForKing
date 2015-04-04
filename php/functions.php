@@ -69,6 +69,9 @@ function printAlert(){
     $alertBox.append('<?php echo $alert_content ?>');
     $alertBox.appendTo('body');
     $alertBox.slideDown();
+    window.setTimeout(function(){//not a fancy solution, but hey, later.. TODO, make it better
+      $alertBox.slideUp('slow');
+    }, 2000);
   });
 </script>
 <?php

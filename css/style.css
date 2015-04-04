@@ -9,6 +9,7 @@
 
 .custom-alert{
   position:absolute;
+  top:70px;
   display:none;
   width:100%;
 }
