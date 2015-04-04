@@ -36,12 +36,21 @@
 
 .player {
   padding:0;
-  background-color:#eeeeee;
-  border: 10px solid #eeeeee;
-  border-bottom: 10px solid #eeeeee;
   -webkit-box-shadow: 3px 3px 3px #777;
   -moz-box-shadow: 3px 3px 3px #777;
   box-shadow: 3px 3px 3px #777;
+}
+
+#player1{
+  background-color:#67abdc;
+  border: 10px solid #67abdc;
+  border-bottom: 10px solid #67abdc;
+}
+
+#player2{
+  background-color:#f87a54;
+  border: 10px solid #f87a54;
+  border-bottom: 10px solid #f87a54;
 }
 
 .player img{
@@ -51,7 +60,7 @@
 .player p {
   text-align: center;
   width: 100%;
-  color: #888;
+  color: #666666;
 }
 
 #gameContainer{
