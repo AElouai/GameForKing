@@ -42,18 +42,18 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bootstrap-social.min.css">
     <link rel="stylesheet" href="/css/style.css">
-		<!--[if lt IE 9]>
-			<script src="/js/html5shiv.min.js"></script>
-			<script src="/js/respond.min.js"></script>
+    <!--[if lt IE 9]>
+	<script src="/js/html5shiv.min.js"></script>
+	<script src="/js/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-		<?php if($action=="profile"){ ?>
-				<link rel="stylesheet" href="/css/profile-style.css">
-		<?php }else if($action=="go"){ ?>
-			<link rel="stylesheet" href="/css/go-style.css">
-			<script type="text/javascript" src="/js/go.js"></script>
-		<?php } ?>
+<?php if($action=="profile"){ ?>
+    <link rel="stylesheet" href="/css/profile-style.css">
+<?php }else if($action=="go"){ ?>
+    <link rel="stylesheet" href="/css/go-style.css">
+    <script type="text/javascript" src="/js/go.js"></script>
+<?php } ?>
   </head>
 <body>
 
