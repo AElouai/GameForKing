@@ -7,44 +7,43 @@
 }
 
 #tile1{
-    background: rgb(0,172,238);
+  background: rgb(0,172,238);
 }
 
 #tile2{
-    background: rgb(243,243,243);
+  background: rgb(192,192,192);
 }
 
 #tile3{
-    background: rgb(71,193,228);
+  background: rgb(71,193,228);
 }
 
 #tile4{
-    background-image: url('http://handsontek.net/demoimages/tiles/facebook.png');
-    background-size: cover;
+  background: rgb(215,127,60);
 }
 
 #tile5{
-    background: rgb(175,26,63);
+  background: rgb(175,26,63);
 }
 
 #tile6{
-    background: rgb(62,157,215);
+  background: rgb(62,157,215);
 }
 
 #tile7{
-    background: white;
+  background: rgb(78, 22, 22);
 }
 
 #tile8{
-    background: rgb(209,70,37);
+  background: rgb(209,70,37);
 }
 
 #tile9{
-    background: rgb(0,142,0);
+  background: rgb(0,142,0);
 }
 
 #tile10{
-    background: rgb(0,93,233);
+  background: rgb(0,93,233);
 }
 
 .tilecaption{
@@ -61,19 +60,19 @@
 }
 
 .play-tile{
-  width:100%;
+  width:100% !important;
 }
 
 .play-tile a:hover{
   text-decoration:none;
 }
 
-.play-tile .tile{
+.play-tile .play-btn{
   background-color:rgb(62,157,215);
   transition-duration: 1s;
 }
 
-.play-tile:hover .tile{
+.play-tile:hover .play-btn{
   background-color:rgb(0,142,0);
   transition-duration: 1s;
 }
@@ -83,10 +82,6 @@
   color:red;
 }
 
-.play-btn{
-
-}
-
-.play-btn:hover{
-
+.tile-selected{
+  background-color:rgb(0,142,0) !important;
 }

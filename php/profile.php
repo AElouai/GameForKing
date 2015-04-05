@@ -4,12 +4,10 @@
             <div class="card hovercard">
                 <div class="cardheader"></div>
                 <div class="avatar">
-                    <img alt="" src="/profile-pictures/default.jpg">
+                    <img alt="" src="/profile-pictures/default-3.jpg">
                 </div>
                 <div class="info">
-                    <div class="title">
-                        <a href="http://scripteden.com/">G4K guy</a>
-                    </div>
+                    <div class="title">G4K guy</div>
                     <div class="desc">Stats</div>
                     <div class="desc">More stats...</div>
                 </div>

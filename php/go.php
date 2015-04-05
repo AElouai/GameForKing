@@ -6,7 +6,6 @@ if(!isset($isIndex))die('');
 <div class="row ">
     <div class="col-sm-2 col-xs-4">
     	<div id="tile1" class="tile">
-
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -14,16 +13,14 @@ if(!isset($isIndex))die('');
                <img src="http://handsontek.net/demoimages/tiles/twitter1.png" class="img-responsive"/>
             </div>
             <div class="item">
-               <img src="http://handsontek.net/demoimages/tiles/twitter2.png" class="img-responsive"/>
+              <h3 class="tilecaption">Math</h3>
             </div>
           </div>
         </div>
-
     	</div>
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile2" class="tile">
-
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -31,19 +28,14 @@ if(!isset($isIndex))die('');
               <img src="http://handsontek.net/demoimages/tiles/hot.png" class="img-responsive"/>
             </div>
             <div class="item">
-              <img src="http://handsontek.net/demoimages/tiles/hot2.png" class="img-responsive"/>
-            </div>
-            <div class="item">
-              <img src="http://handsontek.net/demoimages/tiles/hot3.png" class="img-responsive"/>
+              <h3 class="tilecaption">Physics</h3>
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile3" class="tile">
-
         <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -59,7 +51,6 @@ if(!isset($isIndex))die('');
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile4" class="tile">
-
         <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -71,12 +62,10 @@ if(!isset($isIndex))die('');
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
     <div class="col-sm-2 col-xs-4">
 		<div id="tile5" class="tile">
-
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -88,12 +77,10 @@ if(!isset($isIndex))die('');
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile6" class="tile">
-
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -105,7 +92,6 @@ if(!isset($isIndex))die('');
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
 </div>
@@ -113,7 +99,6 @@ if(!isset($isIndex))die('');
 <div class="row">
 	<div class="col-sm-4 col-xs-8">
 		<div id="tile7" class="tile">
-
         <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -128,12 +113,10 @@ if(!isset($isIndex))die('');
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile8" class="tile">
-
          <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -145,12 +128,10 @@ if(!isset($isIndex))die('');
             </div>
             </div>
          </div>
-
 		</div>
 	</div>
 	<div class="col-sm-2 col-xs-4">
 		<div id="tile9" class="tile">
-
           <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -162,12 +143,10 @@ if(!isset($isIndex))die('');
             </div>
           </div>
         </div>
-
 		</div>
 	</div>
 	<div class="col-sm-4 col-xs-8">
 		<div id="tile10" class="tile">
-
            <div class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
@@ -183,15 +162,13 @@ if(!isset($isIndex))die('');
             <div class="item">
               <h3 class="tilecaption">Combine them and create your metro style</h3>
             </div>
-
           </div>
         </div>
-
 		</div>
 	</div>
   <div class="col-sm-4 col-xs-8 play-tile">
     <a href="/game" class="play-btn">
-      <div class="tile">
+      <div class="play-btn">
         <h3 class="tilecaption">Play</h3>
 		  </div>
     </a>
