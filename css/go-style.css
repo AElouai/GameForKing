@@ -6,46 +6,6 @@
     padding:5px;
 }
 
-#tile1{
-  background: rgb(0,172,238);
-}
-
-#tile2{
-  background: rgb(192,192,192);
-}
-
-#tile3{
-  background: rgb(71,193,228);
-}
-
-#tile4{
-  background: rgb(215,127,60);
-}
-
-#tile5{
-  background: rgb(175,26,63);
-}
-
-#tile6{
-  background: rgb(62,157,215);
-}
-
-#tile7{
-  background: rgb(78, 22, 22);
-}
-
-#tile8{
-  background: rgb(209,70,37);
-}
-
-#tile9{
-  background: rgb(0,142,0);
-}
-
-#tile10{
-  background: rgb(0,93,233);
-}
-
 .tilecaption{
     position: relative;
     top: 50%;
@@ -57,6 +17,10 @@
     color:white;
     font-family: Segoe UI;
     font-weight: lighter;
+}
+
+.item img{
+    width:100%;
 }
 
 .play-tile{
