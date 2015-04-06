@@ -98,7 +98,7 @@ printAlert();//let's print alerts
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="/"><img src="/img/logo.png"></a>
+				<a href="/"><img src="/img/logo-g4k.png"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
