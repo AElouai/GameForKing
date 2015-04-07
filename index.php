@@ -14,7 +14,7 @@
 								'profile',
 								'go',
 								'game',
-								'signup	',
+								'signup',
 								'signin',
 								'signout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
