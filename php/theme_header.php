@@ -128,4 +128,4 @@ printAlert();//let's print alerts
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container-fluid" style='margin-top:0;margin-left:0;margin-right:0;'>
