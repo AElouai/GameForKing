@@ -2,8 +2,9 @@
 if(!isset($isIndex))die('');
 ?>
 </div><!-- this ends container for content DO NOT REMOVE, thank you-->
-<div class="footer navbar-fixed-bottom">
+
+<footer class="footer">
     <div class="container">
-      GameForKing.com &copy; 2015
+        <p>GameForKing.com &copy; 2015</p>
     </div>
-</div>
+</footer>

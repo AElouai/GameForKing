@@ -1,17 +1,45 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+.container p {
+    margin: 20px 0;
+}
+
 .s-btn{
-  width:90%;
-  margin-left:5%;
-  margin-right:5%;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
 }
 .fa{
-  margin-right:5px;
+    margin-right:5px;
 }
 
 .custom-alert{
-  position:absolute;
-  top:70px;
-  display:none;
-  width:100%;
+    position:absolute;
+    top:70px;
+    display:none;
+    width:100%;
+}
+
+.footer{
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
 }
 
 /**
@@ -23,12 +51,12 @@
 }
 
 #profile-img{
-  display:block;
+    display:block;
 }
 
 #profile-img img{
-  display:inline-block;
-  height:60px;
+    display:inline-block;
+    height:60px;
 }
 
 /**
@@ -36,43 +64,43 @@
 **/
 
 .player {
-  padding:0;
-  -webkit-box-shadow: 3px 3px 3px #777;
-  -moz-box-shadow: 3px 3px 3px #777;
-  box-shadow: 3px 3px 3px #777;
+    padding:0;
+    -webkit-box-shadow: 3px 3px 3px #777;
+    -moz-box-shadow: 3px 3px 3px #777;
+    box-shadow: 3px 3px 3px #777;
 }
 
 #player1{
-  background-color:#67abdc;
-  border: 10px solid #67abdc;
-  border-bottom: 10px solid #67abdc;
+    background-color:#67abdc;
+    border: 10px solid #67abdc;
+    border-bottom: 10px solid #67abdc;
 }
 
 #player2{
-  background-color:#f87a54;
-  border: 10px solid #f87a54;
-  border-bottom: 10px solid #f87a54;
+    background-color:#f87a54;
+    border: 10px solid #f87a54;
+    border-bottom: 10px solid #f87a54;
 }
 
 .player img{
-  max-width:100%;
+    max-width:100%;
 }
 
 .player p {
-  text-align: center;
-  width: 100%;
-  color: #666666;
+    text-align: center;
+    width: 100%;
+    color: #666666;
 }
 
 #gameContainer{
-  background-color:#eeeeee;
-  border: 10px solid #eeeeee;
-  border-bottom: 0;
-  -webkit-box-shadow: 3px 3px 3px #777;
-  -moz-box-shadow: 3px 3px 3px #777;
-  box-shadow: 3px 3px 3px #777;
+    background-color:#eeeeee;
+    border: 10px solid #eeeeee;
+    border-bottom: 0;
+    -webkit-box-shadow: 3px 3px 3px #777;
+    -moz-box-shadow: 3px 3px 3px #777;
+    box-shadow: 3px 3px 3px #777;
 }
 
 #game{
-  height:500px;
+    height:500px;
 }
