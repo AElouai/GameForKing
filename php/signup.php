@@ -18,7 +18,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     setAlert('danger','password don'."'"."t match");
     redirect('/home');
   }
-  if(DB::signup(Array('email'=>$email,'password'=>$password,'link'=>$link))){
+  if(User::signup(Array('email'=>$email,'password'=>$password,'link'=>$link))){
  //   setAlert('success','hello '.User::getFullName().', Welcome aboard!');
     redirect('/game');
   }
