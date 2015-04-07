@@ -32,6 +32,10 @@
 	if(empty($action)){
 		$action = "home";
 	}
+    if($action=='gameMaker'){//it looks ugly but hey, it works
+        require_once("./php/gameMaker.php");
+        exit(0);
+    }
 ?>
 <html>
   <head>

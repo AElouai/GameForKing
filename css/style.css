@@ -97,3 +97,13 @@ body {
 #game{
     height:500px;
 }
+
+.spinner{/*TODO fix spinner,make it centered*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.progress{
+    display: none;
+}

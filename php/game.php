@@ -3,12 +3,14 @@ if(!isset($isIndex))die('');
 $subjects = strtolower($_POST['selected']);//TODO clean $subjects
 ?>
 <script type="text/javascript">
-    var subs = '<?php echo $subjects; ?>'.split(',');
-    var go = new GameOn({
-        subjects:subs,
-        delay:5000
+    $(document).ready(function(){
+        var subs = '<?php echo $subjects; ?>'.split(',');
+        var go = new GameOn({
+            subjects:subs,
+            delay:5000
+        });
+        go.init();
     });
-    go.init();
 </script>
 <div class="container">
     <div class="row">
@@ -21,10 +23,11 @@ $subjects = strtolower($_POST['selected']);//TODO clean $subjects
             </div>
         </div>
         <div class="col-xs-12 col-md-8" id="gameContainer">
-            <div id='game'>
-            </div>
-            <div class="progress progress-striped active" id="timer">
-                <div class="progress-bar" style="width: 45%"></div>
+            <div id='gameWrapper'>
+                <div id="game"></div>
+                <div class="progress progress-striped active" id="timer">
+                    <div class="progress-bar" style="width: 45%"></div>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-md-2 player" id="player2">
