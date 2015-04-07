@@ -2,13 +2,6 @@ html {
     position: relative;
     min-height: 100%;
 }
-.bg-color {
-  background-color: #3498DB;
-}
-.blk-color {
-  background-color: #FFFFFF;
-}
-
 body {
     margin-bottom: 60px;
 }
@@ -16,12 +9,15 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+    padding:0;
     height: 60px;
     background-color: #f5f5f5;
 }
+
 .container p {
     margin: 20px 0;
 }
+
 .s-btn{
     width:90%;
     margin-left:5%;
@@ -36,14 +32,6 @@ body {
     top:70px;
     display:none;
     width:100%;
-}
-
-.footer{
-    padding: 40px 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: 1px solid #e5e5e5;
 }
 
 /**
