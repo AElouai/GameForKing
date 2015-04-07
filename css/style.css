@@ -2,6 +2,13 @@ html {
     position: relative;
     min-height: 100%;
 }
+.bg-color {
+  background-color: #3498DB;
+}
+.blk-color {
+  background-color: #FFFFFF;
+}
+
 body {
     margin-bottom: 60px;
 }
@@ -15,7 +22,6 @@ body {
 .container p {
     margin: 20px 0;
 }
-
 .s-btn{
     width:90%;
     margin-left:5%;

@@ -9,6 +9,7 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	require_once('./php/database.php');
+	require_once('./php/database.class.php');
 	$routes = array('home',
 								'profile',
 								'go',
@@ -56,7 +57,7 @@
     <script type="text/javascript" src="/js/go.js"></script>
 <?php } ?>
   </head>
-<body class="bg-color">
+<body class="bg-color" style='margin-top:0;margin-left:0;margin-right:0;'>
 
 	<?php
 	if(in_array($action,$routes)){
