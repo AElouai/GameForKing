@@ -1,6 +1,15 @@
 <?php
 if(!isset($isIndex))die('');
+$subjects = strtolower($_POST['selected']);//TODO clean $subjects
 ?>
+<script type="text/javascript">
+    var subs = '<?php echo $subjects; ?>'.split(',');
+    var go = new GameOn({
+        subjects:subs,
+        delay:1000
+    });
+    go.init();
+</script>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-2 player" id="player1">
