@@ -11,12 +11,12 @@
 	require_once('./php/database.php');
 	require_once('./php/database.class.php');
 	$routes = array('home',
-								'profile',
-								'go',
-								'game',
-								'signup	',
-								'signin',
-								'signout');
+                    'profile',
+                    'go',
+                    'game',
+                    'signup',
+					'signin',
+                    'signout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
 
@@ -55,6 +55,8 @@
 <?php }else if($action=="go"){ ?>
     <link rel="stylesheet" href="/css/go-style.css">
     <script type="text/javascript" src="/js/go.js"></script>
+<?php }else if($action=="game"){ ?>
+    <script type="text/javascript" src="/js/game.js"></script>
 <?php } ?>
   </head>
 <body class="bg-color" style='margin-top:0;margin-left:0;margin-right:0;'>
