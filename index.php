@@ -56,7 +56,7 @@
     <script type="text/javascript" src="/js/go.js"></script>
 <?php } ?>
   </head>
-<body>
+<body class="bg-color">
 
 	<?php
 	if(in_array($action,$routes)){
