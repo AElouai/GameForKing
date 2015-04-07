@@ -68,9 +68,9 @@ body {
 }
 
 #player2{
-    background-color:#f87a54;
-    border: 10px solid #f87a54;
-    border-bottom: 10px solid #f87a54;
+    background-color:#e54545;
+    border: 10px solid #e54545;
+    border-bottom: 10px solid #e54545;
 }
 
 .player img{
@@ -80,7 +80,9 @@ body {
 .player p {
     text-align: center;
     width: 100%;
-    color: #666666;
+    color: #e8edf1;
+    text-shadow: 0 0 2px #000;
+    font-weight: bold;
 }
 
 #gameContainer{
