@@ -234,13 +234,12 @@ if(!isset($isIndex))die('');
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-sm-4 col-xs-8 play-tile">
-        <a href="/game">
-            <div class="play-btn">
-                <h3 class="tilecaption">Play</h3>
-            </div>
-        </a>
+    <div class="row">
+        <div class="play-tile">
+            <form action="/game" method="POST" name="els" id="els">
+                <input type="hidden" name="selected" id="selected">
+                <input type="submit" class="play-btn" value="Play">
+            </form>
+        </div>
     </div>
 </div>

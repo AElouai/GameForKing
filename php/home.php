@@ -14,7 +14,7 @@
 		</div>
 	&nbsp&nbsp
 	</div>
-	<div id="service" class="blk-color" >
+	<div id="service" class="" >
 		<div class="row center-block">
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
