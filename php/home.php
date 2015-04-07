@@ -23,23 +23,26 @@
 					challenge opponents from across the globe and engage in real-time brain battles. As your level increases your opponents will get stronger. Prove that you deserve to be the KING.
 				</p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<img class="img-responsive img-circle center-block" src="/img/kingo.png">
 			</div>
+			<div class="col-md-2"></div>
 		</div>
 
 		<div class="row center-block">
 			<div class="col-md-2"></div>
-			<div class="col-md-4">
-				<img class="img-responsive center-block" src="/img/badge.png">
-			</div>
-			<div class="col-md-4">
+			<div class="col-md-2 pull-right"></div>
+			<div class="col-md-4 pull-right">
 				<h2 class="text-center">gagner des badge</h2>
 				<p class="text-center">
 					gagner des badge sur chaque defi réussi et montre au monde vous exploit
 				</p>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-4">
+				<img class="img-responsive center-block" src="/img/badge.png">
+			</div>
+			
+			
 		</div>		
 	</div>
 

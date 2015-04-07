@@ -9,6 +9,7 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	require_once('./php/database.php');
+	require_once('./php/database.class.php');
 	$routes = array('home',
 								'profile',
 								'go',
