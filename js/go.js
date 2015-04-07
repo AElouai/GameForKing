@@ -18,6 +18,9 @@ $( document ).ready(function() {
         $(".item").height($("#tile1").width());
     });
 
+    //let's not let the user drag tiles, it makes em look less impressive
+    $('.tile').on('dragstart', function(event) { event.preventDefault(); });
+
     //generating random color for each tile
     //and initializing one little var that we'll need later on
     $('.tile').each(function(){
@@ -32,7 +35,7 @@ $( document ).ready(function() {
 
     $('.tile').click(function(){
         var thisTile=$(this);
-        if(this.isAnimated) {
+        if(this.isAnimated){//tile selected
             thisTile.addClass('tile-selected');
             thisTile.children('.carousel').carousel(1);
             thisTile.children('.carousel').carousel('pause');
@@ -43,5 +46,15 @@ $( document ).ready(function() {
             thisTile.children('.carousel').carousel('cycle');
         }
         this.isAnimated = !this.isAnimated;
+    });
+    //this basically overrides submit function, because, i just want to do one thing or two before that :p
+    $('#els').submit(function(){
+        $('.tile').each(function(){
+            if(!this.isAnimated){
+                $('#selected').val($('#selected').val()+$(this).find('.tilecaption').html()+',');
+            }
+        });
+        $('#selected').val($('#selected').val().slice(0,-1));//to remove the last ,
+        return true;
     });
 });

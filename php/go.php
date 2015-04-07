@@ -236,8 +236,8 @@ if(!isset($isIndex))die('');
     </div>
     <div class="row">
         <div class="play-tile">
-            <form action="/game" method="POST">
-                <input type="hidden" name="selected">
+            <form action="/game" method="POST" name="els" id="els">
+                <input type="hidden" name="selected" id="selected">
                 <input type="submit" class="play-btn" value="Play">
             </form>
         </div>

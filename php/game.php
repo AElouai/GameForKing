@@ -1,5 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
+echo "you selected ".$_POST['selected'];
 ?>
 <div class="row">
   <div class="col-xs-12 col-md-2 player" id="player1">
