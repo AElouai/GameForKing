@@ -8,6 +8,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Dashboard</title>
+<link href="css/button.css" rel="stylesheet" />
+     <audio preload="auto">
+       <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true" type="audio/mp3" />
+       <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true" type="audio/ogg" />
+     </audio>
+	 <script language="javascript" >
+	  function sound() {
+    document.getElementsByTagName('audio')[0].play();
+    document.getElementsByTagName('span')[0].innerHTML = 'Have Fun!';
+    return false;
+    }
+	 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Flatro Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -67,7 +79,7 @@ wow.init();
 	
          <div class="cssmenu">
 			<ul>
-			    <li class="active"><a href="logout.html">Logout</a></li> 
+			    <li class="active"><a href="index.php"><img src="images/logout.png"></a></li> 
 			</ul>
 		 </div>
 	</div>
@@ -77,7 +89,7 @@ wow.init();
 	    <div class="container">
 			<div class="col-xs-9 header-bottom-left">
 				<div class="col-xs-2 logo">
-					<h1><a href="index.html"><span>Our</span>Logo</a></h1>
+					<h1><img src="images/gflogo.jpg"></h1>
 				</div>
 				<div class="col-xs-7 menu">
 		            <ul class="megamenu skyblue">
@@ -135,7 +147,21 @@ wow.init();
                             <div class="" >
 							  <div class="header-nav-link ">
 							 
-							  <b><a href="profile.html">User:   Unicorn Freak</a></b>
+							  <b><a href="profile.html"><?php 
+							  
+							    echo "Working on it"
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  ?></a></b>
 							  </div>
 							  <div class="clearfix"></div>
 						    </div>
@@ -152,11 +178,9 @@ wow.init();
 <div class="banner">
 	<div class="container">
 		<div class="banner_desc">
-			<h1>Welcome to GamingLAnd.</h1>
+			<h1>Welcome to GamingForking.</h1>
 			<h2>Choose a game and start the adventure...</h2>
-			<div class="button">
-			      <a href="random.php" class="hvr-shutter-out-horizontal">Play Now</a>
-			    </div>
+		
 		</div>
 	</div>
 </div>	
@@ -167,8 +191,8 @@ wow.init();
 	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow slideInLeft" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="maths.php"><img src="images/maths.jpg"></a>
+	           <section class="wow swing" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="biology.php"><img src="images/biology.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -176,8 +200,8 @@ wow.init();
 	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow flip" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="physics.php"><img src="images/physics.jpg"></a>
+	           <section class="wow flip" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="chemistry.php"><img src="images/chemistry.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -185,8 +209,8 @@ wow.init();
   	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow bounceIn" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="music.php"><img src="images/music.jpg"></a>
+	           <section class="wow bounceIn" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="history.php"><img src="images/history.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -194,8 +218,8 @@ wow.init();
 	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow swing" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="knowledge.php"><img src="images/knowledge.jpg"></a>
+	           <section class="wow swing" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="art.php"><img src="images/art.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -203,8 +227,8 @@ wow.init();
 	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow wobble" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="cinema.php"><img src="images/cinema.jpg"></a>
+	           <section class="wow wobble" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="music.php"><img src="images/music.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -212,14 +236,102 @@ wow.init();
 	<div class="section group">
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
-	           <section class="wow tada" data-wow-duration="2s" data-wow-delay="1s">
-		         <a href="history.php"><img src="images/history.jpg"></a>
+	           <section class="wow tada" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="geography.php"><img src="images/geography.png"></a>
 		       </section>
 	       </div>
 	    </div>
 	</div>	 
-	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow rollIn" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="languages.php"><img src="images/languages.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow slideOutDown" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="literature.php"><img src="images/literature.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow rotateIn" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="math.php"><img src="images/math.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow bounceIn" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="politics.php"><img src="images/politics.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow pulse" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="technology.php"><img src="images/technology.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow swing" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="fitness.php"><img src="images/fitness.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+	    <div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+		    <div class="shop-holder">
+	           <section class="wow flip" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="physics.php"><img src="images/physics.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+	    <div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+		  <div class="shop-holder">
+	           <section class="wow flip" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="religion.php"><img src="images/religion.png"></a>
+		       </section>
+	       </div>
+	    </div>
+	</div>	
+		<div class="section group">
+		<div class="col_1_of_3 span_1_of_3">
+			<div class="shop-holder">
+	           <section class="wow rubberBand" data-wow-duration="5s" data-wow-delay="1s">
+		         <a href="problems.php"><img src="images/problems.png"></a>
+		       </section>
+	       </div>
+	    </div>
+		  	<div class="button">
+				 <section class="wow swing" data-wow-duration="2s" data-wow-delay="3s"> 
+			      <center><a href="#" id="button" class="hvr-shutter-out-horizontal" onclick="javascript:sound();"><span>Play Now!</span></a></center>
+				   </section>
+			    </div>
+	</div>	
+             
 	</div>
+	
+            	
 			</div>   
 		</div>
 		
