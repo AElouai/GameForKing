@@ -11,12 +11,12 @@
 	require_once('./php/database.php');
 	require_once('./php/database.class.php');
 	$routes = array('home',
-								'profile',
-								'go',
-								'game',
-								'signup',
-								'signin',
-								'signout');
+                    'profile',
+                    'go',
+                    'game',
+                    'signup',
+					'signin',
+                    'signout');
 	$requestURI = explode('/',$_SERVER['REQUEST_URI']);
 	$scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
 
