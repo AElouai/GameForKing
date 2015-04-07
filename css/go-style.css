@@ -51,5 +51,7 @@
 }
 
 .tile-selected{
-  background-color:rgb(0,142,0) !important;
+    background-color:rgb(0,142,0) !important;
+    background: url('/img/checked.png');
+    background-repeat: no-repeat;
 }

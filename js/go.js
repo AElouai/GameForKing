@@ -38,6 +38,7 @@ $( document ).ready(function() {
             thisTile.children('.carousel').carousel('pause');
         }
         else{
+            thisTile.removeClass('tile-selected');
             thisTile.children('.carousel').carousel(0);
             thisTile.children('.carousel').carousel('cycle');
         }
