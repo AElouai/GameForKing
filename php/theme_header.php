@@ -102,8 +102,10 @@ printAlert();//let's print alerts
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 				<ul class="nav navbar-nav">
+					<?php if(User::isConnected()){ ?>
 					<li class="active"><a href="/go">Play</a></li>
 					<li><a href="#">something else</a></li>
+					<?php } ?>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<?php if(User::isConnected()){ ?>

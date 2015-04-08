@@ -10,7 +10,7 @@ $password = '';
 $dbname = 'gameforking';
 
 $link = new mysqli($servername, $username, $password, $dbname);
-$link->set_charset('utf8');
 
 if($link->connect_error)die('');
+$link->set_charset('utf8');
 ?>
