@@ -23,7 +23,8 @@ Class User{
     public static function signin($input){
         //when we are in refactoring phase, this should be a procedure
         $result = $input['link']->query("select id,firstName,lastName from users where (email='".$input['email']."' ) and password='".G4K_MD5($input['password'])."'");
-        if($result->num_rows == 1){//okey, we got results.
+        $res= $result->num_rows;
+        if($res){//okey, we got results.
           $row = $result->fetch_assoc();
           $_SESSION['u_id'] = $row['id'];
           $_SESSION['firstName'] = $row['firstName'];
@@ -36,8 +37,10 @@ Class User{
     public static function signup($input){
         //when we are in refactoring phase, this should be a procedure
         //we should add firstname, lastname into sing up page
+        $stmt = $input['link']->stmt_init();
         $stmt = mysqli_prepare($input['link'], "INSERT INTO users(email,password) VALUES (?,?)");
-        $stmt->bind_param($input['email'],G4K_MD5($input['password']));
+        $pass =G4K_MD5($input['password']);
+        $stmt->bind_param('ss',$input['email'],$pass);
 
         if($stmt->execute()){//nicely execute
           $_SESSION['u_id'] = $stmt->insert_id;
