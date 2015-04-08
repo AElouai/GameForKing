@@ -1,5 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
+//need to be more carful about this $_POST['selected']
 $subjects = $_POST['selected'];//TODO clean $subjects
 ?>
 <script type="text/javascript">

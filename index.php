@@ -32,9 +32,14 @@
 	if(empty($action)){
 		$action = "home";
 	}
-    if(($action == 'game' || $action == 'go') && !User::isConnected()){
+    if( ($action == 'game' || $action == 'go') && !User::isConnected()){//if not connected he can see only home 
         setAlert('warning','in order to play please sign in first');
         header('location: /home');
+        exit(0);
+    }
+    if( $action == 'home' && User::isConnected()){//if connected he can't see home 
+        //setAlert('warning','in order to play please sign in first');
+        header('location: /go');
         exit(0);
     }
     if($action=='gameMaker'){//it looks ugly but hey, it works
