@@ -51,7 +51,7 @@ $( document ).ready(function() {
     $('#els').submit(function(){
         $('.tile').each(function(){
             if(!this.isAnimated){
-                $('#selected').val($('#selected').val()+$(this).find('.tilecaption').html()+',');
+                $('#selected').val($('#selected').val()+$(this).find('.tileValue').html()+',');
             }
         });
         $('#selected').val($('#selected').val().slice(0,-1));//to remove the last ,

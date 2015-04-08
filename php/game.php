@@ -1,6 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
-$subjects = strtolower($_POST['selected']);//TODO clean $subjects
+$subjects = $_POST['selected'];//TODO clean $subjects
 ?>
 <script type="text/javascript">
     $(document).ready(function(){

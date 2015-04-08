@@ -7,12 +7,12 @@ class GameMaker{
         $user_id = User::getUserId();
         $link = $input['link'];
         $subjects = explode(',',$input['subjects']);
-        $link->query("delete * from queue where userId='$user_id'");//clear history queue
-        $link->query("insert into queue(userId,queueDate) VALUES($user_id,CURDATE())");
+        $link->query("delete from queue where userId='$user_id'");//clear history queue
+        $link->query("insert into queue(userId) VALUES($user_id)");
 
         $queueId = $link->insert_id;
         foreach($subjects as $subject){
-            $link->query("insert into queuedetail(idQueue,idSubject) VALUES($queueId,$subject)");
+            $link->query("insert into queuedetail(idQueue,idSubject) VALUES('$queueId','$subject')");
         }
 
         if($link->errno){

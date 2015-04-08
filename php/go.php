@@ -14,6 +14,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Math</h3>
+                            <h3 class="hidden tileValue">1</h3>
                         </div>
                     </div>
                 </div>
@@ -29,6 +30,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Physics</h3>
+                            <h3 class="hidden tileValue">2</h3>
                         </div>
                     </div>
                 </div>
@@ -44,6 +46,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Chemistry</h3>
+                            <h3 class="hidden tileValue">3</h3>
                         </div>
                     </div>
                 </div>
@@ -59,6 +62,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Biology</h3>
+                            <h3 class="hidden tileValue">4</h3>
                         </div>
                     </div>
                 </div>
@@ -74,6 +78,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">History</h3>
+                            <h3 class="hidden tileValue">5</h3>
                         </div>
                     </div>
                 </div>
@@ -89,6 +94,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Geography</h3>
+                            <h3 class="hidden tileValue">6</h3>
                         </div>
                     </div>
                 </div>
@@ -106,6 +112,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Religion</h3>
+                            <h3 class="hidden tileValue">7</h3>
                         </div>
                     </div>
                 </div>
@@ -121,6 +128,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Literature</h3>
+                            <h3 class="hidden tileValue">8</h3>
                         </div>
                     </div>
                 </div>
@@ -136,6 +144,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Problems</h3>
+                            <h3 class="hidden tileValue">9</h3>
                         </div>
                     </div>
                 </div>
@@ -151,6 +160,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Tech</h3>
+                            <h3 class="hidden tileValue">10</h3>
                         </div>
                     </div>
                 </div>
@@ -166,6 +176,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Music</h3>
+                            <h3 class="hidden tileValue">11</h3>
                         </div>
                     </div>
                 </div>
@@ -181,6 +192,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Movies</h3>
+                            <h3 class="hidden tileValue">12</h3>
                         </div>
                     </div>
                 </div>
@@ -198,6 +210,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Art</h3>
+                            <h3 class="hidden tileValue">13</h3>
                         </div>
                     </div>
                 </div>
@@ -213,6 +226,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Politics</h3>
+                            <h3 class="hidden tileValue">14</h3>
                         </div>
                     </div>
                 </div>
@@ -228,6 +242,7 @@ if(!isset($isIndex))die('');
                         </div>
                         <div class="item caption">
                             <h3 class="tilecaption">Fitness</h3>
+                            <h3 class="hidden tileValue">15</h3>
                         </div>
                     </div>
                 </div>

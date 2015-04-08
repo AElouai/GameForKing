@@ -33,6 +33,10 @@ body {
     width:100%;
 }
 
+.hidden{
+    display: none;
+}
+
 /**
 * navbar profile thingy
 **/
