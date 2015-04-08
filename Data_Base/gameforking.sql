@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 04 Avril 2015 à 03:17
+-- Généré le :  Mer 08 Avril 2015 à 19:19
 -- Version du serveur :  5.6.16
 -- Version de PHP :  5.5.11
 
@@ -89,6 +89,44 @@ CREATE TABLE IF NOT EXISTS `question` (
   `tag` int(11) NOT NULL,
   PRIMARY KEY (`id_question`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `queue`
+--
+
+CREATE TABLE IF NOT EXISTS `queue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `queueDate` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `queuedetail`
+--
+
+CREATE TABLE IF NOT EXISTS `queuedetail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idQueue` int(11) NOT NULL,
+  `idSubject` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `subject`
+--
+
+CREATE TABLE IF NOT EXISTS `subject` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `label` varchar(25) COLLATE utf16_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
