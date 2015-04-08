@@ -104,7 +104,6 @@ printAlert();//let's print alerts
 				<ul class="nav navbar-nav">
 					<?php if(User::isConnected()){ ?>
 					<li class="active"><a href="/go">Play</a></li>
-					<li><a href="#">something else</a></li>
 					<?php } ?>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
