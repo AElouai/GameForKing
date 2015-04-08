@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 08 Avril 2015 à 19:19
--- Version du serveur :  5.6.16
--- Version de PHP :  5.5.11
+-- Généré le :  Mer 08 Avril 2015 à 19:06
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -136,16 +136,17 @@ CREATE TABLE IF NOT EXISTS `subject` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(20) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
+  `firstName` varchar(20) DEFAULT NULL,
+  `lastName` varchar(20) DEFAULT NULL,
   `Fuid` bigint(20) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
-  `login` varchar(25) NOT NULL,
-  `password` varchar(40) DEFAULT NULL,
-  `total_score` int(11) NOT NULL,
+  `login` varchar(25) DEFAULT NULL,
+  `password` varchar(40) NOT NULL,
+  `total_score` int(11) DEFAULT NULL,
   `creation_date` date NOT NULL,
-  `week_score` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `week_score` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
@@ -153,15 +154,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `password`, `total_score`, `creation_date`, `week_score`) VALUES
-(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 55465),
-(2, '', '', 6, 'eklma', 't', 'ghj', 9787, '2015-03-17', 898),
-(3, '', '', 4, 'email3', 'test3', 'hgjkl', 54654, '2015-03-11', 55465),
-(4, '', '', 3, 'email4', 'test4', 'ghj', 9787, '2015-03-17', 898),
-(5, '', '', 12, 'test_face', 'test_login', NULL, 0, '0000-00-00', 0),
-(6, '', '', 1, 'email', 'tjttjkl', NULL, 0, '0000-00-00', 0),
-(7, '', '', 14, 'eklma', 't', NULL, 0, '0000-00-00', 0),
-(9, '', '', 78, 'tetttt', 'doha', NULL, 0, '2015-04-01', 0),
-(10, '', '', 794080757343065, 'testt', 'Soukaina', NULL, 0, '2015-04-01', 0);
+(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 55465);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
