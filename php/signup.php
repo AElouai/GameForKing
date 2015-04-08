@@ -19,8 +19,8 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
     redirect('/home');
   }
   if(User::signup(Array('email'=>$email,'password'=>$password,'link'=>$link))){
- //   setAlert('success','hello '.User::getFullName().', Welcome aboard!');
-    redirect('/game');
+    setAlert('success','hello '.User::getFullName().', Welcome aboard!');
+    redirect('/go');
   }
   else{
     setAlert('danger','could not connect with the given credentials.');
