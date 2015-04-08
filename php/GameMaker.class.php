@@ -15,7 +15,7 @@ class GameMaker{
             $link->query("insert into queuedetail(idQueue,idSubject) VALUES($queueId,$subject)");
         }
 
-        if($link->connect_errno){
+        if($link->errno){
             return false;
         }
 

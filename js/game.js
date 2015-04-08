@@ -12,8 +12,13 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                 type: 'POST',
                 data:{subjects:subjects}
             }).done(function(data){
-                $('#game').html($('<img>',{src:"/img/spiffy.gif",'class':"spinner"}));
-                console.log(data);
+                if(data == 'success'){
+                    $('#game').html($('<img>',{src:"/img/spiffy.gif",'class':"spinner"}));
+                    console.log(data);
+                }
+                else{
+                    window.location.replace('/go');
+                }
             });
         },
         checkStatus:function(){
@@ -25,7 +30,7 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
             });
         },
         heartBeat:function(){
-            this.checkStatus();
+            //this.checkStatus();
             //executes every @delay
             setInterval(this.heartBeat,delay);
             console.log('hear G4K\'s beating heart');
