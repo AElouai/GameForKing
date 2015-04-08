@@ -18,7 +18,7 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                     console.log(data);
                 }
                 else{
-                    //window.location.replace('/go');
+                    window.location.replace('/go');
                 }
             });
         },
