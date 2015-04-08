@@ -41,7 +41,7 @@ Class User{
         $stmt = mysqli_prepare($input['link'], "INSERT INTO users(email,password) VALUES (?,?)");
         $pass =G4K_MD5($input['password']);
         $stmt->bind_param('ss',$input['email'],$pass);
-
+          
         if($stmt->execute()){//nicely execute
           $_SESSION['u_id'] = $stmt->insert_id;
           $_SESSION['firstName'] = "firstName ";//need to add those field to sing up page
