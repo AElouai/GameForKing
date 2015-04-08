@@ -8,10 +8,12 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
         },
         startSearch:function(){
             $.ajax({
-                url:'/gameMaker/queue'
-            }).done(function(){
+                url:'/gameMaker/queue',
+                type: 'POST',
+                data:{subjects:subjects}
+            }).done(function(data){
                 $('#game').html($('<img>',{src:"/img/spiffy.gif",'class':"spinner"}));
-                console.log('player queued');
+                console.log(data);
             });
         },
         checkStatus:function(){

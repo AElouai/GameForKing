@@ -9,7 +9,6 @@
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
 	require_once('./php/database.php');
-	require_once('./php/database.class.php');
 	$routes = array('home',
                     'profile',
                     'go',
@@ -70,6 +69,7 @@
 		require_once("./php/theme_header.php");
 		require_once("./php/".$action.".php");
 		require_once("./php/theme_footer.php");
+        $link->close();//close session
 	}
 	else{
 		require_once("./php/error.php");

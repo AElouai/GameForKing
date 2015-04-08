@@ -4,7 +4,7 @@ $subjects = strtolower($_POST['selected']);//TODO clean $subjects
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        var subs = '<?php echo $subjects; ?>'.split(',');
+        var subs = '<?php echo $subjects; ?>';
         var go = new GameOn({
             subjects:subs,
             delay:5000
