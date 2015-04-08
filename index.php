@@ -8,6 +8,7 @@
 	$isIndex=true;
 	require_once('./php/functions.php');
 	require_once('./php/config.php');
+	require_once('./php/User.class.php');
 	require_once('./php/database.php');
 	$routes = array('home',
                     'profile',
@@ -31,6 +32,11 @@
 	if(empty($action)){
 		$action = "home";
 	}
+    if(($action == 'game' || $action == 'go') && !User::isConnected()){
+        setAlert('warning','in order to play please sign in first');
+        header('location: /home');
+        exit(0);
+    }
     if($action=='gameMaker'){//it looks ugly but hey, it works
         require_once("./php/gameMaker.php");
         exit(0);

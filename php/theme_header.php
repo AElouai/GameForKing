@@ -1,6 +1,5 @@
 <?php
 if(!isset($isIndex))die('');
-require_once('User.class.php');
 printAlert();//let's print alerts
 ?>
 	<div class="modal fade" id="connexion">
