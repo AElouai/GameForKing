@@ -1,4 +1,4 @@
-var GameOn = function(obj){
+var GameOn = function(obj){//TODO remove all console.log (when done) beause it causes problems for IE
     var subjects = obj.subjects;
     var delay = obj.delay || 1000;//defaults at 1s
     return {
@@ -10,7 +10,7 @@ var GameOn = function(obj){
             $.ajax({
                 url:'/gameMaker/queue'
             }).done(function(){
-                $('#game').html($('<img>',{src:'/img/spiffy.gif',class:'spinner'}));
+                $('#game').html($('<img>',{src:"/img/spiffy.gif",'class':"spinner"}));
                 console.log('player queued');
             });
         },
