@@ -146,22 +146,8 @@ wow.init();
 	                
                             <div class="" >
 							  <div class="header-nav-link ">
-							 
-							  <b><a href="profile.html"><?php 
-							  
-							    echo "Working on it"
-							  
-							  
-							  
-							  
-							  
-							  
-							  
-							  
-							  
-							  
-							  
-							  ?></a></b>
+							    <img src="img/default-44.jpg">
+							  <b><a href="profile.php" >haikei00X</a></b>
 							  </div>
 							  <div class="clearfix"></div>
 						    </div>
