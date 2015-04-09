@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 09 Avril 2015 à 15:01
+-- Généré le :  Jeu 09 Avril 2015 à 15:11
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -116,6 +116,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `queueDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `random` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=12 ;
 
@@ -123,8 +124,8 @@ CREATE TABLE IF NOT EXISTS `queue` (
 -- Contenu de la table `queue`
 --
 
-INSERT INTO `queue` (`id`, `userId`, `queueDate`) VALUES
-(11, 15, '2015-04-08 23:42:14');
+INSERT INTO `queue` (`id`, `userId`, `queueDate`, `random`) VALUES
+(11, 15, '2015-04-08 23:42:14', 1);
 
 -- --------------------------------------------------------
 
