@@ -22,22 +22,12 @@ class GameMaker{
         return true;
     }
     public static function queue_random($input){//TODO when at refactoring phase, this should be done with mysql procedure
-        $user_id = User::getUserId();
         $link = $input['link'];
-        $subjects = explode(',',$input['subjects']);
-        $link->query("delete from queue where userId='$user_id'");//clear history queue
-        $link->query("insert into queue(userId) VALUES($user_id)");
-
-        $queueId = $link->insert_id;
-        foreach($subjects as $subject){
-            $link->query("insert into queuedetail(idQueue,idSubject) VALUES('$queueId','$subject')");
-        }
-        if($link->errno){
-            return false;
-        }
-
-        $_SESSION['queueId']=$queueId;
-        return true;
+        $user_id = User::getUserId();//need to make this a global var :D so we can access it from evey where
+        $stmt = $link->stmt_init();
+        $stmt = mysqli_prepare($link,"insert into queue(userId) VALUES(?)");
+        $stmt->bind_param('i',$user_id);
+        return ($stmt->execute()) ? true : false ;
     }
     public static function search($input){// random search
         $user_id = User::getUserId();
@@ -49,10 +39,21 @@ class GameMaker{
         $result = $link->query("select userId from queue ORDER BY queueDate DESC LIMIT 1");
         $res = $result->num_rows;
         if($res){
-
-            return true;
+            $stmt = $link->stmt_init();
+            $stmt = mysqli_prepare($link,"delete from queue where userId=?");
+            $stmt->bind_param('i',$result);
+            if($stmt->execute()){//nicely execute
+                $stmt = mysqli_prepare($link,"insert into battle(player1,player2,status) VALUES(?,?,?)");
+                $stmt->bind_param('iib',$user_id,$result,0);
+                $stmt->execute();
+                return $stmt->insert_id;//he got into a game :D
+            }
+            return NULL; 
         }else{
-            return false;
+            if(GameMaker::queue_random($input)){
+                return 0 ;//0 mean he is in waiting list :D 
+            }
+            return NULL;
         }
     }
 }
