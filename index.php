@@ -2,7 +2,7 @@
 /*
 *This  is file should be locked.
 *you can only add routes to the $routes array, don't change anything else
-*if you want to change somehting in the theme consider visiting php/theme_header and php/theme_footer
+*if you want to change something in the theme consider visiting php/theme_header and php/theme_footer
 */
 	session_start();
 	$isIndex=true;
