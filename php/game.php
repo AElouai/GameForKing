@@ -1,7 +1,15 @@
 <?php
 if(!isset($isIndex))die('');
 //need to be more carful about this $_POST['selected']
-$subjects = $_POST['selected'];//TODO clean $subjects
+//$subjects = $_POST['selected'];//TODO clean $subjects
+$subjects = explode(',',$_POST['subjects']);
+if(empty($subjects)){//i don't know if this is correct need to chek it out 
+    if(GameMaker::search_random(Array('link'=>$link))){
+        
+    }
+}else{
+
+}
 ?>
 <script type="text/javascript">
     $(document).ready(function(){

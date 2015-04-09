@@ -1,5 +1,4 @@
 <?php
-
 require_once('./php/User.class.php');
 
 class GameMaker{
@@ -29,12 +28,8 @@ class GameMaker{
         $stmt->bind_param('ib',$user_id,1);//1 mean random
         return ($stmt->execute()) ? true : false ;
     }
-    public static function search($input){// random search
+    public static function search_random($input){// random search
         $user_id = User::getUserId();
-        $subjects = explode(',',$input['subjects']);
-        /*$stmt = $input['link']->stmt_init();
-        $stmt = mysqli_prepare($input['link'], "select userId from queue where  ");
-        $stmt->bind_param();*/ //this is to use when search is by field
         $link = $input['link'];
         $result = $link->query("select userId from queue ORDER BY queueDate DESC LIMIT 1");
         $res = $result->num_rows;
