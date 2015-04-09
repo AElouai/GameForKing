@@ -1,7 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
 ?>
-
 <div class="container dynamicTile">
     <div class="row ">
         <div class="col-sm-2 col-xs-4">

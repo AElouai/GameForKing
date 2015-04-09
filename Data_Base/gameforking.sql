@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 08 Avril 2015 à 23:32
+-- Généré le :  Jeu 09 Avril 2015 à 15:01
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `battle` (
   `player1` int(11) NOT NULL,
   `player2` int(11) NOT NULL,
   `winner` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -114,16 +115,16 @@ CREATE TABLE IF NOT EXISTS `question` (
 CREATE TABLE IF NOT EXISTS `queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
-  `queueDate` date NOT NULL,
+  `queueDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `queue`
 --
 
 INSERT INTO `queue` (`id`, `userId`, `queueDate`) VALUES
-(5, 15, '0000-00-00');
+(11, 15, '2015-04-08 23:42:14');
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `queuedetail` (
   `idQueue` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=48 ;
 
 --
 -- Contenu de la table `queuedetail`
@@ -161,7 +162,35 @@ INSERT INTO `queuedetail` (`id`, `idQueue`, `idSubject`) VALUES
 (16, 5, 4),
 (17, 5, 8),
 (18, 5, 9),
-(19, 5, 10);
+(19, 5, 10),
+(20, 6, 1),
+(21, 6, 3),
+(22, 6, 4),
+(23, 6, 8),
+(24, 6, 9),
+(25, 6, 10),
+(26, 7, 1),
+(27, 7, 3),
+(28, 7, 4),
+(29, 7, 8),
+(30, 7, 9),
+(31, 7, 10),
+(32, 8, 1),
+(33, 8, 3),
+(34, 8, 4),
+(35, 8, 8),
+(36, 8, 9),
+(37, 8, 10),
+(38, 9, 1),
+(39, 9, 3),
+(40, 9, 4),
+(41, 9, 8),
+(42, 9, 9),
+(43, 9, 10),
+(44, 10, 0),
+(45, 11, 1),
+(46, 11, 6),
+(47, 11, 14);
 
 -- --------------------------------------------------------
 

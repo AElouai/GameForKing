@@ -1,3 +1,10 @@
+<?
+if( !User::isConnected()){//if not connected you can't see Profil 
+        setAlert('warning','in order to play please sign in first');
+        header('location: /home');
+        exit(0);
+    }
+?>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3 col-sm-6">

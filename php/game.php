@@ -13,9 +13,9 @@ $subjects = $_POST['selected'];//TODO clean $subjects
         go.init();
     });
 </script>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-2 player" id="player1">
+        <div class="col-xs-3 col-md-2 player" id="player1">
             <img src="/profile-pictures/default-0.jpg">
             <p>Gameforking guy</p>
             <div class="progress">
@@ -23,7 +23,7 @@ $subjects = $_POST['selected'];//TODO clean $subjects
                 <div class="progress-bar progress-bar-danger wrong"></div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-8" id="gameContainer">
+        <div class="col-xs-6 col-md-8" id="gameContainer">
             <div id='gameWrapper'>
                 <div id="game"></div>
                 <div class="progress progress-striped active" id="timer">
@@ -31,7 +31,7 @@ $subjects = $_POST['selected'];//TODO clean $subjects
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-2 player" id="player2">
+        <div class="col-xs-3 col-md-2 player" id="player2">
             <img src="/profile-pictures/default-1.jpg">
             <p>Somebody else</p>
             <div class="progress">
