@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 09 Avril 2015 à 15:54
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Ven 10 Avril 2015 à 00:47
+-- Version du serveur :  5.6.16
+-- Version de PHP :  5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,88 +23,82 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `battle`
+-- Structure de la table `battledetail`
 --
 
-CREATE TABLE IF NOT EXISTS `battle` (
+CREATE TABLE IF NOT EXISTS `battledetail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `player1` int(11) NOT NULL,
-  `player2` int(11) NOT NULL,
-  `winner` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `idBattle` int(11) NOT NULL,
+  `idGame` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Structure de la table `battles`
 --
 
-CREATE TABLE IF NOT EXISTS `categorie` (
-  `id_categorie` int(11) NOT NULL AUTO_INCREMENT,
-  `categorie` varchar(20) NOT NULL,
-  PRIMARY KEY (`id_categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `battles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idQueue1` int(11) NOT NULL,
+  `idQueue2` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `false_answer`
+-- Structure de la table `games`
 --
 
-CREATE TABLE IF NOT EXISTS `false_answer` (
-  `id_false` bigint(20) NOT NULL AUTO_INCREMENT,
-  `id_question` int(11) NOT NULL,
-  PRIMARY KEY (`id_false`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `games` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quetionId` int(11) NOT NULL,
+  `queue1Answer` int(11) NOT NULL,
+  `queue2Answer` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `grade`
+-- Structure de la table `questions`
 --
 
-CREATE TABLE IF NOT EXISTS `grade` (
-  `id_grade` int(11) NOT NULL AUTO_INCREMENT,
-  `grade` varchar(40) NOT NULL,
-  PRIMARY KEY (`id_grade`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `questions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text COLLATE utf16_unicode_ci NOT NULL,
+  `idAnswer` int(11) NOT NULL,
+  `idRelated` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `king`
+-- Structure de la table `quetionoptions`
 --
 
-CREATE TABLE IF NOT EXISTS `king` (
-  `king_score` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `quetionoptions` (
+  `id` int(11) NOT NULL,
+  `idQuestion` int(11) NOT NULL,
+  `answer` varchar(100) COLLATE utf16_unicode_ci NOT NULL,
+  UNIQUE KEY `answer` (`answer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `prince`
+-- Structure de la table `quetionrelated`
 --
 
-CREATE TABLE IF NOT EXISTS `prince` (
-  `score_prince` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `question`
---
-
-CREATE TABLE IF NOT EXISTS `question` (
-  `id_question` bigint(20) NOT NULL AUTO_INCREMENT,
-  `question` varchar(100) NOT NULL,
-  `answer` varchar(60) NOT NULL,
-  `tag` int(11) NOT NULL,
-  PRIMARY KEY (`id_question`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `quetionrelated` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idQuestion` int(11) NOT NULL,
+  `idSubject` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -197,14 +191,36 @@ INSERT INTO `queuedetail` (`id`, `idQueue`, `idSubject`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `subject`
+-- Structure de la table `subjects`
 --
 
-CREATE TABLE IF NOT EXISTS `subject` (
+CREATE TABLE IF NOT EXISTS `subjects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `label` varchar(25) COLLATE utf16_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+  `label` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `categorie` (`label`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `label`) VALUES
+(13, 'art'),
+(4, 'biology'),
+(3, 'chemistry'),
+(15, 'fitness'),
+(6, 'geography'),
+(5, 'history'),
+(8, 'literature'),
+(1, 'math'),
+(12, 'movies'),
+(11, 'music'),
+(2, 'physics'),
+(14, 'politics'),
+(9, 'problems'),
+(7, 'religion'),
+(10, 'tech');
 
 -- --------------------------------------------------------
 
@@ -225,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `week_score` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `users`
@@ -235,7 +251,8 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `p
 (1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 55465),
 (12, NULL, NULL, NULL, 'happy', NULL, 'c2e7f00efaf0222b9856c1b10e45371e', NULL, '0000-00-00', NULL),
 (14, NULL, NULL, NULL, 'happy-ali@live.fr', NULL, 'c320386f8abf01869bf60345e6c2ad30', NULL, '0000-00-00', NULL),
-(15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', NULL, '0000-00-00', NULL);
+(15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', NULL, '0000-00-00', NULL),
+(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 554);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
