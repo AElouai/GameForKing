@@ -25,8 +25,8 @@ class GameMaker{
         $link = $input['link'];
         $user_id = User::getUserId();//need to make this a global var :D so we can access it from evey where
         $stmt = $link->stmt_init();
-        $stmt = mysqli_prepare($link,"insert into queue(userId) VALUES(?)");
-        $stmt->bind_param('i',$user_id);
+        $stmt = mysqli_prepare($link,"insert into queue(userId,random) VALUES(?,?)");
+        $stmt->bind_param('ib',$user_id,1);//1 mean random
         return ($stmt->execute()) ? true : false ;
     }
     public static function search($input){// random search
