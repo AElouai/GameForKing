@@ -1,10 +1,11 @@
 var GameOn = function(obj){//TODO remove all console.log (when done) beause it causes problems for IE
     var subjects = obj.subjects;
     var delay = obj.delay || 1000;//defaults at 1s
+    var that = this;
     return {
         init:function(){//the function that will be called from the outside
-            this.heartBeat();
             this.startSearch();
+            this.heartBeat();
         },
         startSearch:function(){
             $.ajax({
@@ -22,19 +23,31 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                 }
             });
         },
+        stopSearch:function(){
+            $.ajax({
+                async: false,
+                url:'/gameMaker/unqueue'
+            });
+        },
         checkStatus:function(){
             $.ajax({
                 url:'/gameMaker/status'
             }).done(function(data){
-                console.log(data);
                 return data;
             });
         },
         heartBeat:function(){
-            //this.checkStatus();//hell i don't know why this is not working
+            var status = that.checkStatus;//this little hack made it work
+            switch(status){
+                case 'search':
+                    console.log('searching..');
+                    break;
+                default:
+                    break;
+            }
             //executes every @delay
-            //setInterval(this.heartBeat,delay);
-            //console.log('hear G4K\'s beating heart');
+            setInterval(this.heartBeat,delay);
+            console.log('hear G4K\'s beating heart');
         }
     };
 };

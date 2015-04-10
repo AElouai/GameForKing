@@ -51,6 +51,13 @@ Class User{
         return false;
     }
 
+    public static function isPlaying($input){
+        $userId = User::getUserId();
+        $result = $input['link']->query("select isPlaying from users where id='$userId'");
+        $row = $result->fetch_assoc();
+        return $row['isPlaying'];
+    }
+
 }
 
 ?>

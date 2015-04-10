@@ -10,8 +10,20 @@ if($params[0] == 'queue'){//player started search
         echo "error";
     }
 }
+else if($params[0] == 'unqueue'){
+    GameMaker::unqueue(Array('link'=>$link));
+    echo "unqueued";
+}
 else if($params[0] == 'status'){//fetching status to play
-    echo "hey";
+    if(!empty(GameMaker::getQueueId())){
+        if(!User::isPlaying(Array('link'=>$link))){
+            if(GameMaker::findOpponent(Array('link'=>$link))){//okey we found an oponent
+                echo "opponentFound";
+            }else{
+                echo "opponentNotFound";
+            }
+        }
+    }
 }
 
 ?>

@@ -10,6 +10,17 @@ $subjects = empty($_POST['selected'])?'0':$_POST['selected'];//TODO clean $subje
             subjects:subs,
             delay:5000
         });
+        window.addEventListener("beforeunload", function(event) {
+            event.returnValue = "do you really want to leave ?";
+        });
+        window.addEventListener("unload", function(event) {
+            //i know it's ugly.. couldn't do it otherwise :/
+            $.ajax({
+                async: false,
+                url:'/gameMaker/unqueue'
+            });
+        });
+
         go.init();
     });
 </script>

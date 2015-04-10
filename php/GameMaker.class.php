@@ -2,6 +2,9 @@
 require_once('./php/User.class.php');
 
 class GameMaker{
+    public static function getQueueId(){
+        return (isset($_SESSION['queueId']))?$_SESSION['queueId']:'';
+    }
     public static function queue($input){//TODO when at refactoring phase, this should be done with mysql procedure
         $user_id = User::getUserId();
         $link = $input['link'];
@@ -19,6 +22,16 @@ class GameMaker{
 
         $_SESSION['queueId']=$queueId;
         return true;
+    }
+    public static function unqueue($input){
+        $user_id = User::getUserId();
+        $link = $input['link'];
+        $link->query("delete from queue where idUser='$user_id'");//remove from queue
+    }
+    public static function findOpponent($input){
+        $user_id = User::getUserId();
+        $link = $input['link'];
+
     }
 }
 
