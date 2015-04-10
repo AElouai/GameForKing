@@ -26,7 +26,7 @@ $( document ).ready(function() {
     $('.tile').each(function(){
         //generating and setting random color, not that random tho.. there are not that much of cool colors
         var thisTile = $(this);
-        var colors = ['00ACEE','C0C0C0','47C1E4','D77F3C','AF1A3F','3E9DD7','4E1616','D14625','005DE9'];
+        var colors = ['00ACEE','C0C0C0','47C1E4','D77F3C','AF1A3F','3E9DD7','4E1617','D14625','005DE9'];
         var randValue = Math.floor(Math.random() * colors.length);
         thisTile.css('background-color',colors[randValue]);
         //okey, now our lil var, :( that's too cheap of me..but it does it just fine

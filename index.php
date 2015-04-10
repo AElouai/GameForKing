@@ -32,16 +32,12 @@
 	if(empty($action)){
 		$action = "home";
 	}
-    if( ($action == 'game' || $action == 'go') && !User::isConnected()){//if not connected he can see only home 
+    if( ($action == 'game' || $action == 'go') && !User::isConnected()){//if not connected he can see only home
         setAlert('warning','in order to play please sign in first');
         header('location: /home');
         exit(0);
     }
-    if( $action == 'home' && User::isConnected()){//if connected he can't see home 
-        //setAlert('warning','in order to play please sign in first');
-        header('location: /go');
-        exit(0);
-    }
+    //why not, i  think he should be able to see home if he's connected...
     if($action=='gameMaker'){//it looks ugly but hey, it works
         require_once("./php/gameMaker.php");
         exit(0);
