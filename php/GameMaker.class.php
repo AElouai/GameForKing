@@ -32,6 +32,7 @@ class GameMaker{
         $user_id = User::getUserId();
         $link = $input['link'];
 
+        $link->query("select * from queue,users,queuedetail where (users.isPlaying=false and queue.id=queuedetail.idQueue and users.id=queue.idUser and users.id!='$user_id')");
     }
 }
 

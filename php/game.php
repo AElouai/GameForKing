@@ -14,7 +14,9 @@ $subjects = empty($_POST['selected'])?'0':$_POST['selected'];//TODO clean $subje
             event.returnValue = "do you really want to leave ?";
         });
         window.addEventListener("unload", function(event) {
-            //i know it's ugly.. couldn't do it otherwise :/
+            //i know it's ugly.. couldn't do it otherwise. sight
+            //it's because other functions will not work
+            //this works because it will be called async
             $.ajax({
                 async: false,
                 url:'/gameMaker/unqueue'

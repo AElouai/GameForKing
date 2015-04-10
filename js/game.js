@@ -23,12 +23,6 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                 }
             });
         },
-        stopSearch:function(){
-            $.ajax({
-                async: false,
-                url:'/gameMaker/unqueue'
-            });
-        },
         checkStatus:function(){
             $.ajax({
                 url:'/gameMaker/status'
