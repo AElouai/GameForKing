@@ -33,7 +33,8 @@ class GameMaker{
         $link = $input['link'];
 
         $link->query("SELECT idQueue,idSubject FROM queue,users,queuedetail WHERE(users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id!='$user_id' AND ( queuedetail.idSubject IN (select idSubject FROM queue,users,queuedetail WHERE ( users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id='$user_id') ) OR queuedetail.idSubject=0 ) )");
-
+        //the result will contain queueid and subjectid of other players that are searching for a game
+        
     }
 }
 
