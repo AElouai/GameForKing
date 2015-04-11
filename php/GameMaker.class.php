@@ -51,24 +51,44 @@ class GameMaker{
         }
         return false;
     }
+    private static function scoreDistance($score1,$score2){
+        return abs($score1-$score2);
+    }
     public static function findOpponent($input){
         $user_id = User::getUserId();
         $link = $input['link'];
 
         //the result will contain queueid and subjectid of other players that are searching for a game
-        $link->query("SELECT idQueue,idPlayer,idSubject FROM queue,users,queuedetail WHERE(users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id!='$user_id' AND ( queuedetail.idSubject IN (select idSubject FROM queue,users,queuedetail WHERE ( users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id='$user_id') ) OR queuedetail.idSubject=0 ) )");
+        $result = $link->query("SELECT idQueue,idUser,idSubject FROM queue,users,queuedetail WHERE(users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id!='$user_id' AND ( queuedetail.idSubject IN (select idSubject FROM queue,users,queuedetail WHERE ( users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id='$user_id') ) OR queuedetail.idSubject=0 ) )");
 
         //i don't know if we do need to check if the player is playing. because the queueId is still there,
         //it must be that he didn't find a battle just yet. so i guess it's unecessary to check if the other player !isPlaying
 
         //now we need to get matchmaking fair, so we need to check each player's score
-        //basically min(abs(scoreplayer1,scoreplayer2))
-
+        //basically min(abs(distance(scoreplayer1,scoreplayer2)))
+        //this better be like
+        if(!$result->num_rows){
+            return 0;
+        }
+        $row = $result->fetch_assoc();
+        $min_score_distance = GameMaker::score_distance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
         //now let's get the queueId and the subjectId
-        $userId = '';
-        $queueId = '';
-        $subjectId = '';
+        $userId = $row['idPlayer'];
+        $queueId = $row['idUser'];
+        $subjectId = $row['idSubject'];
 
+        while($row = $result->fetch_assoc()){
+            $current_distance = GameMaker::score_distance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
+            if($current_distance < $min_score_distance){
+                $min_score_distance = $current_distance;
+                $userId = $row['idPlayer'];
+                $queueId = $row['idUser'];
+                $subjectId = $row['idSubject'];
+            }
+        }
+
+        //we now have the closest two players considering their score
+        //allocate the damn match already! :D
         return GameMaker::allocateBattle(Array('userId'=>$userId,'queueId'=>$queueId,'subjectId'=>$subjectId));
     }
 }
