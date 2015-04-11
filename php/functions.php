@@ -58,20 +58,22 @@ function printAlert(){
 <script type='text/javascript'>
   $(document).ready(function(){
     var $alertBox = $('<div>',{
-      class:'alert custom-alert alert-dismissible alert-<?php echo $alert_type ?>'
+        'class':'alert custom-alert alert-dismissible alert-<?php echo $alert_type ?>'
     });
     var $alertExit = $('<button>',{
-      type:'button',
-      class:'close',
-      'data-dismiss':'alert'
-    });$alertExit.html('×');
-    $alertExit.appendTo($alertBox);
+        'type':'button',
+        'class':'close',
+        'html':'×',
+        'data-dismiss':'alert'
+    });
+    $alertBox.append($alertExit);
     $alertBox.append('<?php echo $alert_content ?>');
     $alertBox.appendTo('body');
     $alertBox.slideDown();
-    window.setTimeout(function(){//not a fancy solution, but hey, later.. TODO, make it better
-      $alertBox.slideUp('slow');
-    }, 2000);
+
+    window.setTimeout(function(){//this doesn't work for FF
+        $alertBox.slideUp('slow');
+    },2000);
   });
 </script>
 <?php

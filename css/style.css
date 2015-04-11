@@ -28,9 +28,9 @@ body {
 
 .custom-alert{
     position:absolute;
+    z-index: 999;
+    width: 100%;
     top:70px;
-    display:none;
-    width:100%;
 }
 
 .hidden{

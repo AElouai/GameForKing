@@ -45,12 +45,13 @@ class GameMaker{
         //ofc the player shouldn't be playing,i think it unecessary but let's leave it here for now.
         if(!User::isPlaying(Array('link'=>$link)) && !empty($user_queueId)){
             //remove both players from the queue
-            $link->query("DELETE FROM queue WHERE idUser IN ($user_id,$user2_Id)");
+            //$link->query("DELETE FROM queue WHERE idUser IN ($user_id,$user2_Id)");
             //change both players status to isPlaying = true
-            $link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
+            //$link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
             //all is good now let's actually create a battle.
-            $link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_queueId','$user2_queueId')");
+            //$link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_queueId','$user2_queueId')");
             //battle created, let's create games (each battle 3 or 5 games ?)
+            echo $user_id." vs ".$user2_Id;
         }
         return false;
     }
