@@ -22,6 +22,8 @@ else if($params[0] == 'status'){//fetching status to play
             }else{
                 echo "opponentNotFound";
             }
+        }else{//player already playing
+
         }
     }
 }

@@ -28,13 +28,45 @@ class GameMaker{
         $link = $input['link'];
         $link->query("delete from queue where idUser='$user_id'");//remove from queue
     }
+    public static function allocateBattle($input){
+        //player1
+        $user_id = User::getUserId();
+        $user_queueId = GameMaker::getQueueId();
+        //player2
+        $user2_Id = $input['userId'];
+        $user2_queueId = $input['queueId'];
+        //subject
+        $subject_Id = $input['subjectId'];
+        //db link
+        $link = $input['link'];
+        //ofc the player shouldn't be playing,i think it unecessary but let's leave it here for now.
+        if(!User::isPlaying(Array('link'=>$link)) && !empty($user_queueId)){
+            //remove both players from the queue
+            $link->query("DELETE FROM queue WHERE idUser IN ($user_id,$user2_Id)");
+            //change both players status to isPlaying = true
+            $link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
+            //all is good now let's actually create a battle.
+            $link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_queueId','$user2_queueId')");
+            //battle created, let's create games (each battle 3 or 5 games ?)
+        }
+        return false;
+    }
     public static function findOpponent($input){
         $user_id = User::getUserId();
         $link = $input['link'];
 
-        $link->query("SELECT idQueue,idSubject FROM queue,users,queuedetail WHERE(users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id!='$user_id' AND ( queuedetail.idSubject IN (select idSubject FROM queue,users,queuedetail WHERE ( users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id='$user_id') ) OR queuedetail.idSubject=0 ) )");
         //the result will contain queueid and subjectid of other players that are searching for a game
-        
+        $link->query("SELECT idQueue,idPlayer,idSubject FROM queue,users,queuedetail WHERE(users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id!='$user_id' AND ( queuedetail.idSubject IN (select idSubject FROM queue,users,queuedetail WHERE ( users.isPlaying=false AND queue.id=queuedetail.idQueue AND users.id=queue.idUser AND users.id='$user_id') ) OR queuedetail.idSubject=0 ) )");
+
+        //i don't know if we do need to check if the player is playing. because the queueId is still there,
+        //it must be that he didn't find a battle just yet. so i guess it's unecessary to check if the other player !isPlaying
+
+        //new let's get the queueId and the subjectId
+        $userId = '';
+        $queueId = '';
+        $subjectId = '';
+
+        return GameMaker::allocateBattle(Array('userId'=>$userId,'queueId'=>$queueId,'subjectId'=>$subjectId));
     }
 }
 

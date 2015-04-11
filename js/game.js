@@ -33,8 +33,11 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
         heartBeat:function(){
             var status = that.checkStatus;//this little hack made it work
             switch(status){
-                case 'search':
-                    console.log('searching..');
+                case 'opponentFound':
+                    console.log('opponent found..');
+                    break;
+                case 'opponentNotFound':
+                    console.log('still searching..');
                     break;
                 default:
                     break;
