@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Dashboard</title>
-<link href="/user_page_pictures/css/button.css" rel="stylesheet" />
+<link href="css/button.css" rel="stylesheet" />
      <audio preload="auto">
        <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true" type="audio/mp3" />
        <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true" type="audio/ogg" />
@@ -25,17 +25,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Flatro Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="/user_page_pictures/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
-<link href="/user_page_pictures/css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--webfont-->
 <link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <!-- start menu -->
-<link href="/user_page_pictures/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/user_page_pictures/css/animate.css" rel="stylesheet" />
+<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/animate.css" rel="stylesheet" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script>$(document).ready(function(c) {
@@ -91,7 +91,7 @@ wow.init();
 				<div class="col-xs-2 logo">
 					<h1><img src="images/gflogo.jpg"></h1>
 				</div>
-				<div class="col-xs-7 menu">
+		<div class="col-xs-7 menu">
 		            <ul class="megamenu skyblue">
 				      <li class="active grid"><a class="color1" href="index.html">We</a><div class="megapanel">
 						<div class="row">
@@ -143,6 +143,12 @@ wow.init();
 			</div>
 		</div>
 	   
+							
+					      
+						</ul>
+					 </li>
+		      </ul>
+	   
 	                
                             <div class="" >
 							  <div class="header-nav-link ">
@@ -178,7 +184,7 @@ wow.init();
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
 	           <section class="wow swing" data-wow-duration="5s" data-wow-delay="1s">
-		         <a href="biology.php"><img src="images/biology.png"></a>
+		         <a href="game1.html"><img src="images/biology.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -187,7 +193,7 @@ wow.init();
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
 	           <section class="wow flip" data-wow-duration="5s" data-wow-delay="1s">
-		         <a href="chemistry.php"><img src="images/chemistry.png"></a>
+		         <a href="game2.html"><img src="images/chemistry.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -196,7 +202,7 @@ wow.init();
 		<div class="col_1_of_3 span_1_of_3">
 			<div class="shop-holder">
 	           <section class="wow bounceIn" data-wow-duration="5s" data-wow-delay="1s">
-		         <a href="history.php"><img src="images/history.png"></a>
+		         <a href="game3.html"><img src="images/history.png"></a>
 		       </section>
 	       </div>
 	    </div>
@@ -310,7 +316,7 @@ wow.init();
 	    </div>
 		  	<div class="button">
 				 <section class="wow swing" data-wow-duration="2s" data-wow-delay="3s"> 
-			      <center><a href="#" id="button" class="hvr-shutter-out-horizontal" onclick="javascript:sound();"><span>Play Now!</span></a></center>
+			      <center><a href="random.php" id="button" class="hvr-shutter-out-horizontal" onclick="javascript:sound();"><span>Play Now!</span></a></center>
 				   </section>
 			    </div>
 	</div>	
