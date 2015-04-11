@@ -27,6 +27,9 @@ class GameMaker{
         $user_id = User::getUserId();
         $link = $input['link'];
         $link->query("delete from queue where idUser='$user_id'");//remove from queue
+        if(!$link->errno){//gotta remvoe it from session too..
+            unset($_SESSION['queueId']);
+        }
     }
     public static function allocateBattle($input){
         //player1
