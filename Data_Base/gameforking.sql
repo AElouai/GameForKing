@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 10 Avril 2015 à 23:25
+-- Généré le :  Sam 11 Avril 2015 à 20:14
 -- Version du serveur :  5.6.16
 -- Version de PHP :  5.5.11
 
@@ -41,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `battledetail` (
 
 CREATE TABLE IF NOT EXISTS `battles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idQueue1` int(11) NOT NULL,
-  `idQueue2` int(11) NOT NULL,
+  `idPlayer1` int(11) NOT NULL,
+  `idPlayer2` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `battles` (
 
 CREATE TABLE IF NOT EXISTS `games` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `quetionId` int(11) NOT NULL,
-  `queue1Answer` int(11) NOT NULL,
-  `queue2Answer` int(11) NOT NULL,
+  `questionId` int(11) NOT NULL,
+  `player1Answer` int(11) NOT NULL,
+  `player2Answer` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
   `idUser` int(11) NOT NULL,
   `queueDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,15 @@ CREATE TABLE IF NOT EXISTS `queuedetail` (
   `idQueue` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=118 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `queuedetail`
+--
+
+INSERT INTO `queuedetail` (`id`, `idQueue`, `idSubject`) VALUES
+(1, 1, 14),
+(2, 1, 15);
 
 -- --------------------------------------------------------
 
@@ -168,15 +176,14 @@ INSERT INTO `subjects` (`id`, `label`) VALUES
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(20) DEFAULT NULL,
-  `lastName` varchar(20) DEFAULT NULL,
+  `firstName` varchar(20) DEFAULT 'herp',
+  `lastName` varchar(20) DEFAULT 'derp',
   `Fuid` bigint(20) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
   `login` varchar(25) DEFAULT NULL,
   `password` varchar(40) NOT NULL,
-  `total_score` int(11) DEFAULT NULL,
+  `score` int(11) NOT NULL DEFAULT '0',
   `creation_date` date NOT NULL,
-  `week_score` int(11) DEFAULT NULL,
   `isPlaying` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
@@ -186,12 +193,12 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `password`, `total_score`, `creation_date`, `week_score`, `isPlaying`) VALUES
-(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 55465, 0),
-(12, NULL, NULL, NULL, 'happy', NULL, 'c2e7f00efaf0222b9856c1b10e45371e', NULL, '0000-00-00', NULL, 0),
-(14, NULL, NULL, NULL, 'happy-ali@live.fr', NULL, 'c320386f8abf01869bf60345e6c2ad30', NULL, '0000-00-00', NULL, 0),
-(15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', NULL, '0000-00-00', NULL, 0),
-(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 554, 0);
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `password`, `score`, `creation_date`, `isPlaying`) VALUES
+(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 0),
+(12, NULL, NULL, NULL, 'happy', NULL, 'c2e7f00efaf0222b9856c1b10e45371e', 0, '0000-00-00', 0),
+(14, NULL, NULL, NULL, 'happy-ali@live.fr', NULL, 'c320386f8abf01869bf60345e6c2ad30', 0, '0000-00-00', 0),
+(15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', 0, '0000-00-00', 0),
+(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
