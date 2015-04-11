@@ -71,25 +71,25 @@ class GameMaker{
             return 0;
         }
         $row = $result->fetch_assoc();
-        $min_score_distance = GameMaker::score_distance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
+        $min_score_distance = GameMaker::scoreDistance(User::getScore(Array('link'=>$link,'userId'=>$row['idUser'])),User::getScore(Array('link'=>$link)));
         //now let's get the queueId and the subjectId
-        $userId = $row['idPlayer'];
-        $queueId = $row['idUser'];
+        $userId = $row['idUser'];
+        $queueId = $row['idQueue'];
         $subjectId = $row['idSubject'];
 
         while($row = $result->fetch_assoc()){
-            $current_distance = GameMaker::score_distance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
+            $current_distance = GameMaker::scoreDistance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
             if($current_distance < $min_score_distance){
                 $min_score_distance = $current_distance;
-                $userId = $row['idPlayer'];
-                $queueId = $row['idUser'];
+                $userId = $row['idUser'];
+                $queueId = $row['idQueue'];
                 $subjectId = $row['idSubject'];
             }
         }
 
         //we now have the closest two players considering their score
         //allocate the damn match already! :D
-        return GameMaker::allocateBattle(Array('userId'=>$userId,'queueId'=>$queueId,'subjectId'=>$subjectId));
+        return GameMaker::allocateBattle(Array('link'=>$link,'userId'=>$userId,'queueId'=>$queueId,'subjectId'=>$subjectId));
     }
 }
 
