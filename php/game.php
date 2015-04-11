@@ -1,23 +1,11 @@
 <?php
-if(!isset($isIndex))die('');
-//need to be more carful about this $_POST['selected']
-//$subjects = $_POST['selected'];//TODO clean $subjects
-$subjects = explode(',',$_POST['subjects']);
-if(empty($subjects)){//i don't know if this is correct need to chek it out 
-    if(GameMaker::search_random(Array('link'=>$link))){
-        
-    }
-}else{
+require_once('./php/gameMaker.php');
 
-}
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
         var subs = '<?php echo $subjects; ?>';
-        var go = new GameOn({
-            subjects:subs,
-            delay:5000
-        });
+        var go = new GameOn({subjects:subs,delay:5000});
         go.init();
     });
 </script>
@@ -48,5 +36,4 @@ if(empty($subjects)){//i don't know if this is correct need to chek it out
             </div>
         </div>
     </div>
-
 </div>
