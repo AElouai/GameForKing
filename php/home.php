@@ -13,13 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
        <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true" type="audio/mp3" />
        <source src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true" type="audio/ogg" />
      </audio>
-	 <script language="javascript" >
-	  function sound() {
-    document.getElementsByTagName('audio')[0].play();
-    document.getElementsByTagName('span')[0].innerHTML = 'Have Fun!';
-    return false;
-    }
-	 </script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Flatro Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -316,7 +310,7 @@ wow.init();
 	    </div>
 		  	<div class="button">
 				 <section class="wow swing" data-wow-duration="2s" data-wow-delay="3s"> 
-			      <center><a href="random.php" id="button" class="hvr-shutter-out-horizontal" onclick="javascript:sound();"><span>Play Now!</span></a></center>
+			      <center><a href="random.php" id="button" class="hvr-shutter-out-horizontal"><span>Play Now!</span></a></center>
 				   </section>
 			    </div>
 	</div>	

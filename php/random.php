@@ -64,9 +64,10 @@ var wow = new WOW(
 );
 wow.init();
 </script>
+
 </head>
 </head>
-<body>
+<body onload="javascript:sound();">
 <div class="header_top">
 	<div class="container">
 	
