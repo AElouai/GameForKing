@@ -72,7 +72,7 @@ function printAlert(){
     $alertBox.slideDown();
 
     window.setTimeout(function(){//this doesn't work for FF
-        $alertBox.slideUp('slow');
+        $alertBox.slideUp('slow');//TODO fix this for FF!, personally i give up
     },2000);
   });
 </script>
