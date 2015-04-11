@@ -20,36 +20,59 @@ class GameMaker{
         $_SESSION['queueId']=$queueId;
         return true;
     }
-    public static function queue_random($input){//TODO when at refactoring phase, this should be done with mysql procedure
-        $link = $input['link'];
-        $user_id = User::getUserId();//need to make this a global var :D so we can access it from evey where
-        $stmt = $link->stmt_init();
-        $stmt = mysqli_prepare($link,"insert into queue(userId,random) VALUES(?,?)");
-        $stmt->bind_param('ib',$user_id,1);//1 mean random
-        return ($stmt->execute()) ? true : false ;
-    }
-    public static function search_random($input){// random search
+
+    public static function search_random($link){// random search
         $user_id = User::getUserId();
-        $link = $input['link'];
-        $result = $link->query("select userId from queue ORDER BY queueDate DESC LIMIT 1");
+        $find = "select userId from queue where userId !=".$user_id." ORDER BY queueDate DESC LIMIT 1";
+        $vs = 'delete from queue where userId=?';
+        $btl = 'insert into battle(player1,player2,status) VALUES(?,?,?)';
+        $wait = 'insert into queue(userId,random) VALUES(?,?)';//1 random -0 chose item
+        $result = $link->query($find);
+        echo $link->error;
         $res = $result->num_rows;
+        
         if($res){
-            $stmt = $link->stmt_init();
-            $stmt = mysqli_prepare($link,"delete from queue where userId=?");
-            $stmt->bind_param('i',$result);
-            if($stmt->execute()){//nicely execute
-                $stmt = mysqli_prepare($link,"insert into battle(player1,player2,status) VALUES(?,?,?)");
-                $stmt->bind_param('iib',$user_id,$result,0);
-                $stmt->execute();
-                return $stmt->insert_id;//he got into a game :D
+            $status = 0 ;//0 stand for Game_enprogresse  -1 for ending game 
+            $row = $result->fetch_assoc();
+            $rech = $link->stmt_init();
+            if (!$rech->prepare($vs)) {
+                $error = $rech->error;//for debug only
+                //return $error;//for debug only
             }
-            return NULL; 
-        }else{
-            if(GameMaker::queue_random($input)){
-                return 0 ;//0 mean he is in waiting list :D 
+            $rech->bind_param('i', $row["userId"]);
+            $play = $link->stmt_init();
+            if (!$play->prepare($btl)) {
+                $error = $play->error;
+                //return $error;
             }
-            return NULL;
+            $play->bind_param('iii',$user_id, $row["userId"],$status);
+            
+            $link->autocommit(false);
+
+            $rech->execute();
+            if (!$link->affected_rows) {
+                $link->rollback();
+                $error = "failed: Couldn't delete user_id from queue";
+            } else {
+                $play->execute();
+                if (!$link->affected_rows) {
+                    $link->rollback();
+                    $error = "failed: Couldn't insert player2 and player1 to a game";
+                } else {
+                    $link->commit();
+                    return $play->insert_id;
+                }
+            }
         }
+        $standby = $link->stmt_init();
+        $standby->prepare($wait);
+        $random = 1;//1 random game 
+        $standby->bind_param('ii', $user_id,$random);
+        $standby->execute();
+        if ($standby->insert_id) {
+            return "-1";//-1 mean he is in waiting list
+        }
+        return NULL;//connection field 
     }
 }
 
