@@ -61,7 +61,10 @@ class GameMaker{
         //i don't know if we do need to check if the player is playing. because the queueId is still there,
         //it must be that he didn't find a battle just yet. so i guess it's unecessary to check if the other player !isPlaying
 
-        //new let's get the queueId and the subjectId
+        //now we need to get matchmaking fair, so we need to check each player's score
+        //basically min(abs(scoreplayer1,scoreplayer2))
+
+        //now let's get the queueId and the subjectId
         $userId = '';
         $queueId = '';
         $subjectId = '';
