@@ -6,6 +6,9 @@ class GameMaker{
     public static function getQueueId(){
         return (isset($_SESSION['queueId']))?$_SESSION['queueId']:'';
     }
+    public static function getBattleId(){
+        return (isset($_SESSION['battleId']))?$_SESSION['battleId']:'';
+    }
     public static function queue($input){//TODO when at refactoring phase, this should be done with mysql procedure
         $user_id = User::getUserId();
         $link = $input['link'];
@@ -120,6 +123,43 @@ class GameMaker{
             return true;//TODO when at the refactoring phase, make this a procedure (transaction please?)
         }
         return false;
+    }
+    public static function BattleInit($input){//set battle id if is not yet set :D
+        if(!isset($_SESSION['battleId'])){
+            $link = $input['link'];
+            $result = $link->query("SELECT id FROM battles WHERE idPlayer1='".User::getUserId()."' OR idPlayer2='".User::getUserId()."'");
+            $row = $result->fetch_assoc();
+            $_SESSION['battleId'] = $row['id'];
+            if($result->num_rows > 1){//just a cleanup i think should be done here to avoid bugs
+                $link->query("DELETE FROM battles WHERE id!='".$row['id']."' AND (idPlayer1='".User::getUserId()."' OR idPlayer2='".User::getUserId()."')");
+            }
+        }
+    }
+    public static function fetchQuestion($input){
+        $question = $input['question'];//not that this doesn't mean the actual questionid in the db,
+        //simply means 1st or.. question
+        $link = $input['link'];//db link..
+        $battleId = GameMaker::getBattleId();//returns the battleid of the player
+        $result = $link->query("SELECT idQuestion FROM battles,battledetail,games WHERE battles.id='$battleId' AND battles.id=idBattle AND games.id=idGame");
+        if(!$result->num_rows){//we don't want no surprises so better be safe.
+            return;
+        }
+
+        $row = $result->fetch_assoc();
+        $questionId = $row['idQuestion'];
+        //okey, now we got a questionId , we are half way through
+        //let's get the question description
+        $result = $link->query("SELECT description FROM questions WHERE id='$questionId'");
+        if(!$result->num_rows){//we don't want no surprises so better be safe.
+            return;
+        }
+        $description = $result->fetch_assoc()['description'];
+
+        //let's get them questionOptions !
+        $result = $link->query("SELECT id,answer FROM quetionoptions where idQuestion='$questionId'");
+        $i = 0;while($options[$i] = $result->fetch_assoc());
+
+        return Array('description'=>$description,'options'=>$options);
     }
 }
 

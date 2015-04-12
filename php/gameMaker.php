@@ -23,10 +23,17 @@ else if($params[0] == 'status'){//fetching status to play
                 echo "opponentNotFound";
             }
         }else{//player already playing
+            GameMaker::BattleInit(Array('link'=>$link));
             echo "inGame";
         }
     }else{//something is up..? (mostly occurs when player is not in the queue and requesting /GameMaker/status
         echo "errorOccured";
+    }
+}
+else if($params[0] == 'fetch'){//fetch the question @params[2]
+    if($params[1] == 'question'){
+        $question = GameMaker::fetchQuestion(Array('link'=>$link,'question'=>$params[2]));
+        echo json_encode($question);
     }
 }
 
