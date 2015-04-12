@@ -31,30 +31,6 @@ class GameMaker{
             unset($_SESSION['queueId']);
         }
     }
-    public static function allocateBattle($input){
-        //player1
-        $user_id = User::getUserId();
-        $user_queueId = GameMaker::getQueueId();
-        //player2
-        $user2_Id = $input['userId'];
-        $user2_queueId = $input['queueId'];
-        //subject
-        $subject_Id = $input['subjectId'];
-        //db link
-        $link = $input['link'];
-        //ofc the player shouldn't be playing,i think it unecessary but let's leave it here for now.
-        if(!User::isPlaying(Array('link'=>$link)) && !empty($user_queueId)){
-            //remove both players from the queue
-            //$link->query("DELETE FROM queue WHERE idUser IN ($user_id,$user2_Id)");
-            //change both players status to isPlaying = true
-            //$link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
-            //all is good now let's actually create a battle.
-            //$link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_queueId','$user2_queueId')");
-            //battle created, let's create games (each battle 3 or 5 games ?)
-            echo $user_id." vs ".$user2_Id;
-        }
-        return false;
-    }
     private static function scoreDistance($score1,$score2){
         return abs($score1-$score2);
     }
@@ -82,7 +58,7 @@ class GameMaker{
         $subjectId = $row['idSubject'];
 
         while($row = $result->fetch_assoc()){
-            $current_distance = GameMaker::scoreDistance(User::getScore(Array('link'=>$link,'userId'=>$row['idPlayer'])),User::getScore(Array('link'=>$link)));
+            $current_distance = GameMaker::scoreDistance(User::getScore(Array('link'=>$link,'userId'=>$row['idUser'])),User::getScore(Array('link'=>$link)));
             if($current_distance < $min_score_distance){
                 $min_score_distance = $current_distance;
                 $userId = $row['idUser'];
@@ -94,6 +70,30 @@ class GameMaker{
         //we now have the closest two players considering their score
         //allocate the damn match already! :D
         return GameMaker::allocateBattle(Array('link'=>$link,'userId'=>$userId,'queueId'=>$queueId,'subjectId'=>$subjectId));
+    }
+    public static function allocateBattle($input){
+        //player1
+        $user_id = User::getUserId();
+        $user_queueId = GameMaker::getQueueId();
+        //player2
+        $user2_Id = $input['userId'];
+        $user2_queueId = $input['queueId'];
+        //subject
+        $subject_Id = $input['subjectId'];
+        //db link
+        $link = $input['link'];
+        //ofc the player shouldn't be playing,i think it unecessary but let's leave it here for now.
+        if(!User::isPlaying(Array('link'=>$link)) && !empty($user_queueId)){
+            //remove both players from the queue
+            $link->query("DELETE FROM queue WHERE idUser IN ($user_id,$user2_Id)");
+            //change both players status to isPlaying = true
+            $link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
+            //all is good now let's actually create a battle.
+            $link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_id','$user2_Id')");
+            //battle created, let's create games (each battle 3 or 5 games ?)
+            return true;
+        }
+        return false;
     }
 }
 
