@@ -29,6 +29,7 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
             switch(status) {
                 case 'inGame':
                     switch(game_status){
+                        console.log(game_status);
                         case 'SEARCH'://default status,go to next status
                             game_status = 'FETCH_PI';
                             break;
@@ -41,7 +42,11 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                             $.ajax({
                                 url:'/gameMaker/fetch/question/'+question
                             }).done(function(data){
-                                $('#game').html('');
+                                $('#game').html(data.descriptio+'<br>');
+                                var options = data.options;
+                                for(var i=0;i<options.length;i++){
+                                    $('#game').append(options[i]+'<br>');
+                                }
                             });
                             break;
                     }
