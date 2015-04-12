@@ -107,7 +107,7 @@ class GameMaker{
 
             //fetch questions related to subjectId :D
             //awesome, randomly orders the result, plus, it only returns exactly how many games i'll need,beautiful
-            $result = $link->query("SELECT id from questions where idRelated='$subject_Id' ORDER BY RAND() LIMIT ".G4K_GAMES_COUNT);
+            $result = $link->query("SELECT questions.id as id from questions,questionrelated where idRelated=questionrelated.id AND idSubject='$subject_Id' ORDER BY RAND() LIMIT ".G4K_GAMES_COUNT);
             $questions = Array();
             for($i = 0;$i < G4K_GAMES_COUNT;$i++){//i am really trusting that there will be at least G4K_GAMES_COUNT for every subjectId
                 $row = $result->fetch_assoc();//i don't want to add further tests for that because ,
@@ -156,8 +156,9 @@ class GameMaker{
         $description = $result->fetch_assoc()['description'];
 
         //let's get them questionOptions !
-        $result = $link->query("SELECT id,answer FROM quetionoptions where idQuestion='$questionId'");
-        $i = 0;while($options[$i] = $result->fetch_assoc());
+        $result = $link->query("SELECT id,answer FROM questionoptions where idQuestion='$questionId'");
+        $i = 0;while($options[$i++] = $result->fetch_assoc());//getting question options
+        unset($options[sizeof($options)-1]);//un setting the last one because it does not have anything
 
         return Array('description'=>$description,'options'=>$options);
     }

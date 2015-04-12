@@ -42,10 +42,12 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                             $.ajax({
                                 url:'/gameMaker/fetch/question/'+question
                             }).done(function(data){
-                                $('#game').html(data.descriptio+'<br>');
+                                data = JSON.parse(data);
+                                console.log(data);
+                                $('#game').html(data.description+'<br>');
                                 var options = data.options;
                                 for(var i=0;i<options.length;i++){
-                                    $('#game').append(options[i]+'<br>');
+                                    $('#game').append(options[i].answer+'<br>');
                                 }
                             });
                             break;
