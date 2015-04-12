@@ -1,5 +1,6 @@
 <?php
 if(!isset($isIndex))die('');
+require_once('./php/GameMaker.class.php');
 $subjects = empty($_POST['selected'])?'0':$_POST['selected'];//TODO clean $subjects
 if(User::isPlaying(Array('link'=>$link))){
     GameMaker::unqueue(Array('link'=>$link));

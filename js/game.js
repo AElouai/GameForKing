@@ -28,8 +28,8 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
         }).done(function(status){
             switch(status) {
                 case 'inGame':
+                    console.log(game_status);
                     switch(game_status){
-                        console.log(game_status);
                         case 'SEARCH'://default status,go to next status
                             game_status = 'FETCH_PI';
                             break;
