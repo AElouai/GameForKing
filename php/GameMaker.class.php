@@ -106,7 +106,7 @@ class GameMaker{
             for($i = 0;$i < G4K_GAMES_COUNT;$i++){
                 $link->query("INSERT INTO games(idQuestion) VALUES('".$questions[$i]."')");
                 $gameId = $link->insert_id;
-                $link->query("INSERT INTO battledetails(idBattle,idGame) VALUES('$battleId','$gameId')");
+                $link->query("INSERT INTO battledetail(idBattle,idGame) VALUES('$battleId','$gameId')");
             }
             //i guess this is all? OMG finally
             return true;//TODO when at the refactoring phase, make this a procedure (transaction please?)

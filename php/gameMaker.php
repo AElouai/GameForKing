@@ -23,7 +23,7 @@ else if($params[0] == 'status'){//fetching status to play
                 echo "opponentNotFound";
             }
         }else{//player already playing
-
+            echo "inGame";
         }
     }else{//something is up..? (mostly occurs when player is not in the queue and requesting /GameMaker/status
         echo "errorOccured";
