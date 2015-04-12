@@ -1,7 +1,10 @@
 <?php
 if(!isset($isIndex))die('');
 $subjects = empty($_POST['selected'])?'0':$_POST['selected'];//TODO clean $subjects
-
+if(User::isPlaying(Array('link'=>$link))){
+    GameMaker::unqueue(Array('link'=>$link));
+    $link->query("UPDATE users SET isPlaying=false where id='".User::getUserId()."'");
+}
 ?>
 <script type="text/javascript">
     $(document).ready(function(){

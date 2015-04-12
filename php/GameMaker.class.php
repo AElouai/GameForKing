@@ -30,7 +30,9 @@ class GameMaker{
         $link->query("delete from queue where idUser='$user_id'");//remove from queue
         if(!$link->errno){//gotta remvoe it from session too..
             unset($_SESSION['queueId']);
+            return true;
         }
+        return false;
     }
     private static function scoreDistance($score1,$score2){
         return abs($score1-$score2);
