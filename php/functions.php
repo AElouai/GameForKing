@@ -50,8 +50,8 @@ function setAlert($alert_type,$alert_content){
 
 function printAlert(){
   if(!empty($_SESSION['alert_type'])){
-  $alert_type = $_SESSION['alert_type'];//TODO clean from bad input
-  $alert_content = $_SESSION['alert_content'];//TODO clean from bad input
+  $alert_type = $_SESSION['alert_type'];
+  $alert_content = $_SESSION['alert_content'];
   $_SESSION['alert_type'] = '';
   $_SESSION['alert_content'] = '';
 ?>
@@ -71,8 +71,8 @@ function printAlert(){
     $alertBox.appendTo('body');
     $alertBox.slideDown();
 
-    window.setTimeout(function(){//this doesn't work for FF
-        $alertBox.slideUp('slow');//TODO fix this for FF!, personally i give up
+    window.setTimeout(function(){
+        $alertBox.slideUp('slow');
     },2000);
   });
 </script>
