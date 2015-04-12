@@ -57,6 +57,12 @@ class GameMaker{
         $userId = $row['idUser'];
         $queueId = $row['idQueue'];
         $subjectId = $row['idSubject'];
+        //hmm, if bother players didn't select nothing. let's randomly select a subject :D
+        if($subjectId == 0){
+            $result = $link->query("SELECT id from subjects ORDER BY RAND() LIMIT 1");
+            $row = $result->fetch_assoc();
+            $subjectId = $row['id'];
+        }
 
         while($row = $result->fetch_assoc()){
             $current_distance = GameMaker::scoreDistance(User::getScore(Array('link'=>$link,'userId'=>$row['idUser'])),User::getScore(Array('link'=>$link)));
