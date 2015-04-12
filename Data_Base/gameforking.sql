@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 11 Avril 2015 à 20:14
+-- Généré le :  Dim 12 Avril 2015 à 15:24
 -- Version du serveur :  5.6.16
 -- Version de PHP :  5.5.11
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `battledetail` (
   `idBattle` int(11) NOT NULL,
   `idGame` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `battles` (
   `idPlayer1` int(11) NOT NULL,
   `idPlayer2` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -54,11 +54,11 @@ CREATE TABLE IF NOT EXISTS `battles` (
 
 CREATE TABLE IF NOT EXISTS `games` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `questionId` int(11) NOT NULL,
-  `player1Answer` int(11) NOT NULL,
-  `player2Answer` int(11) NOT NULL,
+  `idQuestion` int(11) NOT NULL,
+  `player1Answer` int(11) DEFAULT NULL,
+  `player2Answer` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,18 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `idAnswer` int(11) NOT NULL,
   `idRelated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `questions`
+--
+
+INSERT INTO `questions` (`id`, `description`, `idAnswer`, `idRelated`) VALUES
+(1, '1+1=?', 2, 1),
+(2, '2-1=?', 1, 1),
+(3, '5-5=?', 3, 1),
+(4, '9-6=?', 4, 1),
+(5, '9-0=?', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -81,11 +92,23 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 CREATE TABLE IF NOT EXISTS `quetionoptions` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idQuestion` int(11) NOT NULL,
   `answer` varchar(100) COLLATE utf16_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `answer` (`answer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `quetionoptions`
+--
+
+INSERT INTO `quetionoptions` (`id`, `idQuestion`, `answer`) VALUES
+(1, 1, '1'),
+(2, 2, '2'),
+(3, 3, '0'),
+(4, 4, '3'),
+(5, 5, '9');
 
 -- --------------------------------------------------------
 
@@ -98,7 +121,18 @@ CREATE TABLE IF NOT EXISTS `quetionrelated` (
   `idQuestion` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `quetionrelated`
+--
+
+INSERT INTO `quetionrelated` (`id`, `idQuestion`, `idSubject`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
   `idUser` int(11) NOT NULL,
   `queueDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -124,15 +158,15 @@ CREATE TABLE IF NOT EXISTS `queuedetail` (
   `idQueue` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=53 ;
 
 --
 -- Contenu de la table `queuedetail`
 --
 
 INSERT INTO `queuedetail` (`id`, `idQueue`, `idSubject`) VALUES
-(1, 1, 14),
-(2, 1, 15);
+(51, 7, 1),
+(52, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -194,11 +228,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `password`, `score`, `creation_date`, `isPlaying`) VALUES
-(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 0),
+(1, 'amine', 'hakkou', 9, 'q4g@hotmail.fr', 'test', '889427e907dbb18fc2016ebae8ddfeaf', 54654, '2015-03-11', 1),
 (12, NULL, NULL, NULL, 'happy', NULL, 'c2e7f00efaf0222b9856c1b10e45371e', 0, '0000-00-00', 0),
 (14, NULL, NULL, NULL, 'happy-ali@live.fr', NULL, 'c320386f8abf01869bf60345e6c2ad30', 0, '0000-00-00', 0),
 (15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', 0, '0000-00-00', 0),
-(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 0);
+(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
