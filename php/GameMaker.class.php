@@ -1,5 +1,6 @@
 <?php
 require_once('./php/User.class.php');
+require_once('./php/config.php');
 
 class GameMaker{
     public static function getQueueId(){
@@ -90,8 +91,25 @@ class GameMaker{
             $link->query("UPDATE users SET isPlaying=true WHERE id IN ($user_id,$user2_Id)");
             //all is good now let's actually create a battle.
             $link->query("INSERT INTO battles(idPlayer1,idPlayer2) VALUES('$user_id','$user2_Id')");
-            //battle created, let's create games (each battle 3 or 5 games ?)
-            return true;
+            $battleId = $link->insert_id;
+            //battle created, let's create games
+
+            //fetch questions related to subjectId :D
+            //awesome, randomly orders the result, plus, it only returns exactly how many games i'll need,beautiful
+            $result = $link->query("SELECT id from questions where idRelated='$subject_Id' ORDER BY RAND() LIMIT ".G4K_GAMES_COUNT);
+            $questions = Array();
+            for($i = 0;$i < G4K_GAMES_COUNT;$i++){//i am really trusting that there will be at least G4K_GAMES_COUNT for every subjectId
+                $row = $result->fetch_assoc();//i don't want to add further tests for that because ,
+                $questions[$i] = $row['id'];//it makes sense that we should have enough questions
+            }
+            //add them questions to the battledetails, yooho
+            for($i = 0;$i < G4K_GAMES_COUNT;$i++){
+                $link->query("INSERT INTO games(idQuestion) VALUES('".$questions[$i]."')");
+                $gameId = $link->insert_id;
+                $link->query("INSERT INTO battledetails(idBattle,idGame) VALUES('$battleId','$gameId')");
+            }
+            //i guess this is all? OMG finally
+            return true;//TODO when at the refactoring phase, make this a procedure (transaction please?)
         }
         return false;
     }

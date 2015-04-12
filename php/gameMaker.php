@@ -25,7 +25,7 @@ else if($params[0] == 'status'){//fetching status to play
         }else{//player already playing
 
         }
-    }else{//something is up..? is it even possible that this could happen ?
+    }else{//something is up..? (mostly occurs when player is not in the queue and requesting /GameMaker/status
         echo "errorOccured";
     }
 }
