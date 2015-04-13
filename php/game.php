@@ -26,7 +26,6 @@ if(User::isPlaying(Array('link'=>$link))){
                 url:'/gameMaker/unqueue'
             });
         });
-
         go.init();
     });
 </script>
@@ -57,5 +56,4 @@ if(User::isPlaying(Array('link'=>$link))){
             </div>
         </div>
     </div>
-
 </div>

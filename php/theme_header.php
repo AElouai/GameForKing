@@ -57,7 +57,7 @@ printAlert();//let's print alerts
 									<div class="form-group">
 										<label for="su-inputEmail" class="col-lg-2 control-label">Email</label>
 										<div class="col-lg-10">
-											<input type="text" class="form-control" name="email" id="su-inputEmail" placeholder="Email">
+											<input type="email" class="form-control" name="email" id="su-inputEmail" placeholder="Email">
 										</div>
 									</div>
 									<div class="form-group">

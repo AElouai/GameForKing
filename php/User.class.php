@@ -2,18 +2,24 @@
 
 Class User{
     public static function isConnected(){//to check if a user is connected or not
-		return isset($_SESSION['u_id']);
-	}
+		  return isset($_SESSION['u_id']);
+	  }
     public static function getUserId(){
         return (User::isConnected())?$_SESSION['u_id']:'';
     }
     public static function getFullName(){
         if(User::isConnected()){
           return ucfirst($_SESSION['firstName']).' '.ucfirst($_SESSION['lastName']);
+        } else{return '';}
+    }
+  public static function getPlayerinfo($link,$userID){
+      $result = $link->query("select total_score,firstName,lastName from users where userID=".$userID." ");
+      $res= $result->num_rows;
+      if($res){//okey, we got results.
+          $row = $result->fetch_assoc();
+          return Array('score'=>$row['total_score'],'firstname'=>$row['firstName'],'lastname'=>$row['lastName']);
         }
-        else{
-          return '';
-        }
+        return false;
     }
     public static function getScore($input){
         $link = $input['link'];
@@ -52,7 +58,7 @@ Class User{
         $stmt = mysqli_prepare($input['link'], "INSERT INTO users(email,password) VALUES (?,?)");
         $pass =G4K_MD5($input['password']);
         $stmt->bind_param('ss',$input['email'],$pass);
-          
+
         if($stmt->execute()){//nicely execute
           $_SESSION['u_id'] = $stmt->insert_id;
           $_SESSION['firstName'] = "firstName ";//need to add those field to sing up page
