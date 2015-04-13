@@ -17,7 +17,7 @@ function cleanEvilTags($data) {
 }
 
 function G4K_MD5($input){
-  return md5("d7a".$input."s05");//this is salted md5. to make it harder for hackers :) / nice  
+  return md5("d7a".$input."s05");//this is salted md5. to make it harder for hackers :) / nice
 }
 
 // Cleans output data..
@@ -50,28 +50,30 @@ function setAlert($alert_type,$alert_content){
 
 function printAlert(){
   if(!empty($_SESSION['alert_type'])){
-  $alert_type = $_SESSION['alert_type'];//TODO clean from bad input
-  $alert_content = $_SESSION['alert_content'];//TODO clean from bad input
+  $alert_type = $_SESSION['alert_type'];
+  $alert_content = $_SESSION['alert_content'];
   $_SESSION['alert_type'] = '';
   $_SESSION['alert_content'] = '';
 ?>
 <script type='text/javascript'>
   $(document).ready(function(){
     var $alertBox = $('<div>',{
-      class:'alert custom-alert alert-dismissible alert-<?php echo $alert_type ?>'
+        'class':'alert custom-alert alert-dismissible alert-<?php echo $alert_type ?>'
     });
     var $alertExit = $('<button>',{
-      type:'button',
-      class:'close',
-      'data-dismiss':'alert'
-    });$alertExit.html('×');
-    $alertExit.appendTo($alertBox);
+        'type':'button',
+        'class':'close',
+        'html':'×',
+        'data-dismiss':'alert'
+    });
+    $alertBox.append($alertExit);
     $alertBox.append('<?php echo $alert_content ?>');
     $alertBox.appendTo('body');
     $alertBox.slideDown();
-    window.setTimeout(function(){//not a fancy solution, but hey, later.. TODO, make it better
-      $alertBox.slideUp('slow');
-    }, 2000);
+
+    window.setTimeout(function(){
+        $alertBox.slideUp('slow');
+    },2000);
   });
 </script>
 <?php

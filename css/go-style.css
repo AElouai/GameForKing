@@ -72,6 +72,13 @@
     background-size: 100% 100%;
 }
 
+@media all and (max-width: 1000px) {
+  .tilecaption{
+    font-size: 25px;
+  }
+}
+
+
 @media all and (max-width: 525px) {
   .tilecaption{
     font-size: 20px;

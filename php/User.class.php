@@ -15,6 +15,17 @@ Class User{
           return '';
         }
     }
+    public static function getScore($input){
+        $link = $input['link'];
+        $user_id = (isset($input['userId']))?$input['userId']:User::getUserId();
+
+        $result = $link->query("SELECT score from users where id='$user_id'");
+        if($result->num_rows){
+            $row = $result->fetch_assoc();
+            return $row['score'];
+        }
+        return 0;
+    }
     public static function signout(){
 		session_destroy();
 		unset($_SESSION);
@@ -49,6 +60,13 @@ Class User{
           return true;
         }
         return false;
+    }
+
+    public static function isPlaying($input){
+        $userId = User::getUserId();
+        $result = $input['link']->query("select isPlaying from users where id='$userId'");
+        $row = $result->fetch_assoc();
+        return $row['isPlaying'];
     }
 
 }

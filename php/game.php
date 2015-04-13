@@ -1,14 +1,10 @@
 <?php
 if(!isset($isIndex))die('');
-//need to be more carful about this $_POST['selected']
-//$subjects = $_POST['selected'];//TODO clean $subjects
-$subjects = explode(',',$_POST['subjects']);
-if(empty($subjects)){//i don't know if this is correct need to chek it out 
-    if(GameMaker::search_random(Array('link'=>$link))){
-        
-    }
-}else{
-
+require_once('./php/GameMaker.class.php');
+$subjects = empty($_POST['selected'])?'0':$_POST['selected'];//TODO clean $subjects
+if(User::isPlaying(Array('link'=>$link))){
+    GameMaker::unqueue(Array('link'=>$link));
+    $link->query("UPDATE users SET isPlaying=false where id='".User::getUserId()."'");
 }
 ?>
 <script type="text/javascript">
@@ -18,6 +14,19 @@ if(empty($subjects)){//i don't know if this is correct need to chek it out
             subjects:subs,
             delay:5000
         });
+        window.addEventListener("beforeunload", function(event) {
+            event.returnValue = "do you really want to leave ?";
+        });
+        window.addEventListener("unload", function(event) {
+            //i know it's ugly.. couldn't do it otherwise. sight
+            //it's because other functions will not work
+            //this works because it will be called async
+            $.ajax({
+                async: false,
+                url:'/gameMaker/unqueue'
+            });
+        });
+
         go.init();
     });
 </script>
