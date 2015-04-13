@@ -12,16 +12,11 @@ Class User{
           return ucfirst($_SESSION['firstName']).' '.ucfirst($_SESSION['lastName']);
         } else{return '';}
     }
-  public static function getUserId(){
-        return (User::isConnected())?$_SESSION['u_id']:'';
-    }
   public static function getPlayerinfo($link,$userID){
       $result = $link->query("select total_score,firstName,lastName from users where userID=".$userID." ");
       $res= $result->num_rows;
       if($res){//okey, we got results.
-          $row = $result->fetch_assoc();;
-          $_SESSION['firstName'] = 
-          $_SESSION['lastName'] = 
+          $row = $result->fetch_assoc();
           return Array('score'=>$row['total_score'],'firstname'=>$row['firstName'],'lastname'=>$row['lastName']);
         }
         return false;
@@ -30,12 +25,10 @@ Class User{
       $result = $link->query("select total_score from users where userID=".$_SESSION['u_id']." ");
       $res= $result->num_rows;
       if($res){//okey, we got results.
-          $row = $result->fetch_assoc();;
-          $_SESSION['firstName'] = 
-          $_SESSION['lastName'] = 
-          return Array('score'=>$row['total_score'],'firstname'=>$row['firstName'],'lastname'=>$row['lastName']);
+          $row = $result->fetch_assoc();
+          return $row['total_score'];
         }
-        return false;
+        return NULL;
     }
 
 /* connection function*/
