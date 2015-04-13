@@ -17,7 +17,7 @@ function cleanEvilTags($data) {
 }
 
 function G4K_MD5($input){
-  return md5("d7a".$input."s05");//this is salted md5. to make it harder for hackers :) / nice  
+  return md5("d7a".$input."s05");//this is salted md5. to make it harder for hackers :) / nice
 }
 
 // Cleans output data..
