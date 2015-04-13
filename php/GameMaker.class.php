@@ -134,7 +134,6 @@ class GameMaker{
                 $link->query("DELETE FROM battles WHERE id!='".$row['id']."' AND (idPlayer1='".User::getUserId()."' OR idPlayer2='".User::getUserId()."')");
             }
         }
-        return NULL;//connection field
     }
     public static function fetchQuestion($input){
         $question = $input['question'];//not that this doesn't mean the actual questionid in the db,
