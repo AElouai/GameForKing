@@ -163,15 +163,19 @@ class GameMaker{
 
         return Array('description'=>$description,'options'=>$options);
     }
-//later put this in an array
-    public static function saveQuestion($input){
-        $link = $input['link'];
-        $link->query("INSERT INTO games(player1Answer) VALUES('".$input["response"]."')");//
 
+    public static function saveResponse($input){//need the link and response
+        $link = $input['link'];
+        $link->query("INSERT INTO games(player".$_SESSION["player"]."Answer) VALUES('".$input["response"]."')");//
+        if($link->affected_rows()){//to be safe.
+            return true;//ok 
+        }
+        return false;//problem to solve !!
     }
     
-    public static function theWinerIS($input){
+    public static function theWinerIS($input){//need the link and 
         $link = $input['link'];
+        
         $link->query("INSERT INTO games(player1Answer) VALUES('".$input["response"]."')");//
 
     }
