@@ -26,6 +26,17 @@ Class User{
         }
         return 0;
     }
+
+    public static function getPlayerinfo($link,$userID){
+      $result = $link->query("SELECT total_score,firstName,lastName from users where userID=".$userID." ");
+      $res= $result->num_rows;
+      if($res){//okey, we got results.
+          $row = $result->fetch_assoc();
+          return Array('score'=>$row['total_score'],'firstname'=>$row['firstName'],'lastname'=>$row['lastName']);
+        }
+        return false;
+    }
+
     public static function signout(){
 		session_destroy();
 		unset($_SESSION);
@@ -64,7 +75,7 @@ Class User{
 
     public static function isPlaying($input){
         $userId = User::getUserId();
-        $result = $input['link']->query("select isPlaying from users where id='$userId'");
+        $result = $input['link']->query("SELECT isPlaying from users where id='$userId'");
         $row = $result->fetch_assoc();
         return $row['isPlaying'];
     }

@@ -13,12 +13,12 @@ class GameMaker{
         $user_id = User::getUserId();
         $link = $input['link'];
         $subjects = explode(',',$input['subjects']);
-        $link->query("delete from queue where idUser='$user_id'");//clear history queue
-        $link->query("insert into queue(idUser) VALUES($user_id)");
+        $link->query("DELETE from queue where idUser='$user_id'");//clear history queue
+        $link->query("INSERT into queue(idUser) VALUES($user_id)");
 
         $queueId = $link->insert_id;
         foreach($subjects as $subject){
-            $link->query("insert into queuedetail(idQueue,idSubject) VALUES('$queueId','$subject')");
+            $link->query("INSERT into queuedetail(idQueue,idSubject) VALUES('$queueId','$subject')");
         }
         if($link->errno){
             return false;
@@ -30,7 +30,7 @@ class GameMaker{
     public static function unqueue($input){
         $user_id = User::getUserId();
         $link = $input['link'];
-        $link->query("delete from queue where idUser='$user_id'");//remove from queue
+        $link->query("DELETE from queue where idUser='$user_id'");//remove from queue
         if(!$link->errno){//gotta remvoe it from session too..
             unset($_SESSION['queueId']);
             return true;
@@ -75,7 +75,7 @@ class GameMaker{
                 $min_score_distance = $current_distance;
                 $userId = $row['idUser'];
                 $queueId = $row['idQueue'];
-                $subjectId = $row['idSubject'];
+                $subjectId = $row['idSubject'];//here we can have multip subject !!
             }
         }
 

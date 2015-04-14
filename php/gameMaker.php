@@ -23,7 +23,7 @@ else if($params[0] == 'status'){//fetching status to play
                 echo "opponentNotFound";
             }
         }else{//player already playing
-            GameMaker::BattleInit(Array('link'=>$link));
+            GameMaker::BattleInit(Array('link'=>$link));//i didn't get it
             echo "inGame";
         }
     }else{//something is up..? (mostly occurs when player is not in the queue and requesting /GameMaker/status
