@@ -36,5 +36,8 @@ else if($params[0] == 'fetch'){//fetch the question @params[2]
         echo json_encode($question);
     }
 }
+else if($params[0] == 'fetch'){//save player's answer to the database
+
+}
 
 ?>
