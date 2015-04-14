@@ -38,6 +38,7 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                             game_status = 'FETCH_QUESTION';
                             break;
                         case 'FETCH_QUESTION'://fetch question @question =)
+                            game_status = 'WAITING';//
                             question++;
                             $.ajax({
                                 url:'/gameMaker/fetch/question/'+question
@@ -49,6 +50,22 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
                                 for(var i=0;i<options.length;i++){
                                     $('#game').append(options[i].answer+'<br>');
                                 }
+                                //progress bar
+                                var progress = 0;
+                                var timeToNextQuestion = 10000;
+                                window.setInterval(function(){
+                                    $('.progress-bar').css('width',(progress/timeToNextQuestion*100)+'%');
+                                },1000);
+                                window.setInterval(function(){
+                                    //send answer to server
+                                    $.ajax({
+                                        url:'/gameMaker/answer/'+question+'/'+'1',//instead of 1 it should be the question id of the answer that has checkbox = true
+                                        type: 'POST'
+                                    });
+                                    //resetting vars
+                                    game_status = 'FETCH_QUESTION';
+                                    $('.progress-bar').css('width','0%');
+                                },timeToNextQuestion);
                             });
                             break;
                     }

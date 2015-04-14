@@ -12,7 +12,7 @@ if(User::isPlaying(Array('link'=>$link))){
         var subs = '<?php echo $subjects; ?>';
         var go = new GameOn({
             subjects:subs,
-            delay:5000
+            delay:1000
         });
         window.addEventListener("beforeunload", function(event) {
             event.returnValue = "do you really want to leave ?";
@@ -44,7 +44,7 @@ if(User::isPlaying(Array('link'=>$link))){
             <div id='gameWrapper'>
                 <div id="game"></div>
                 <div class="progress progress-striped active" id="timer">
-                    <div class="progress-bar" style="width: 45%"></div>
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
             </div>
         </div>
