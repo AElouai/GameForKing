@@ -105,6 +105,7 @@ class GameMaker{
             $battleId = $link->insert_id;
             //battle created, let's create games
 
+
             //fetch questions related to subjectId :D
             //awesome, randomly orders the result, plus, it only returns exactly how many games i'll need,beautiful
             $result = $link->query("SELECT questions.id as id from questions,questionrelated where idRelated=questionrelated.id AND idSubject='$subject_Id' ORDER BY RAND() LIMIT ".G4K_GAMES_COUNT);
@@ -142,7 +143,7 @@ class GameMaker{
         $battleId = GameMaker::getBattleId();//returns the battleid of the player
         $result = $link->query("SELECT idQuestion FROM battles,battledetail,games WHERE battles.id='$battleId' AND battles.id=idBattle AND games.id=idGame");
         if(!$result->num_rows){//we don't want no surprises so better be safe.
-            return;
+            return;//we should view this later !
         }
 
         $row = $result->fetch_assoc();
@@ -151,7 +152,7 @@ class GameMaker{
         //let's get the question description
         $result = $link->query("SELECT description FROM questions WHERE id='$questionId'");
         if(!$result->num_rows){//we don't want no surprises so better be safe.
-            return;
+            return;//ok but we should think of this later :D
         }
         $description = $result->fetch_assoc()['description'];
 
@@ -162,6 +163,29 @@ class GameMaker{
 
         return Array('description'=>$description,'options'=>$options);
     }
+//later put this in an array
+    public static function saveQuestion($input){
+        $link = $input['link'];
+        $link->query("INSERT INTO games(player1Answer) VALUES('".$input["response"]."')");//
+
+    }
+    
+    public static function theWinerIS($input){
+        $link = $input['link'];
+        $link->query("INSERT INTO games(player1Answer) VALUES('".$input["response"]."')");//
+
+    }
+    public static function sessionPlayerID($link)
+    {
+        $id = User::getUserId();
+        $result = $link->query("SELECT id from battles where idPlayer1 = $id");
+        if($result->num_rows){
+        $_SESSION["player"]=1;
+        }else{
+        $_SESSION["player"]=2;
+        }
+    }
+
 }
 
 ?>
