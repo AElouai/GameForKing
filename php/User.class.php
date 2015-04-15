@@ -27,8 +27,19 @@ Class User{
         return 0;
     }
 
-    public static function getPlayerinfo($link,$userID){
-      $result = $link->query("SELECT total_score,firstName,lastName from users where userID=".$userID." ");
+    public static function setScore($input){//need link and score to set the score
+        $link = $input['link'];
+        $user_id = (isset($input['userId']))?$input['userId']:User::getUserId();
+        $score = $input["score"] + User::getScore($input);
+        $link->query("UPDATE users SET score = $score where userID = $user_id ");
+        if($link->Affected_rows){//just in case
+            return true;
+        }
+        return false;
+    }
+    public static function getPlayerinfo($input){
+      $user_id = (isset($input['userId']))?$input['userId']:User::getUserId();
+      $result = $link->query("SELECT total_score,firstName,lastName from users where id= $user_id ");
       $res= $result->num_rows;
       if($res){//okey, we got results.
           $row = $result->fetch_assoc();
