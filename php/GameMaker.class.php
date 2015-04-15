@@ -193,7 +193,7 @@ class GameMaker{
             }
         }
         if ($player2 > $player1) {
-            
+
             return 2;
         }elseif ($player1 > $player2) {
             return 1;
@@ -211,6 +211,7 @@ class GameMaker{
         $_SESSION["player"]=2;
         }
     }
+    
 
 }
 
