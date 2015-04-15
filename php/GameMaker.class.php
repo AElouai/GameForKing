@@ -175,9 +175,31 @@ class GameMaker{
     
     public static function theWinerIS($input){//need the link and 
         $link = $input['link'];
-        
-        $link->query("INSERT INTO games(player1Answer) VALUES('".$input["response"]."')");//
 
+        $result = $link->query("SELECT idQuestion,player1Answer ,player2Answer from games where id in(SELECT idGame from battledetail where idBattle = ".GameMaker::getBattleId()." ) ");//
+        if(!$result->num_rows){//to be safe.
+            return;//but we should think of this later :D
+        }
+        $player1 = 0;
+        $player2 = 0;
+        while($row = $result->fetch_assoc() ){
+            $res = $link->query("SELECT answer from questions,questionoptions where questionoptions.id = idAnswer  and questions.id =".$row["idQuestion"]." ");//
+            $row2 = $res->fetch_assoc();
+            if ($row["answer"] == $row["player1Answer"]) {
+                $player1 += 1;//until we discuss scoring policy
+            }
+            if ($row["answer"] == $row["player2Answer"]) {
+                $player2 += 1;//until we discuss scoring policy
+            }
+        }
+        if ($player2 > $player1) {
+            
+            return 2;
+        }elseif ($player1 > $player2) {
+            return 1;
+        }else{
+            return 0;//egality
+        }
     }
     public static function sessionPlayerID($link)
     {
