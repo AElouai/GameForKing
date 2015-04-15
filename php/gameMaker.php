@@ -43,6 +43,22 @@ if($params[1] !== NULL){//params[1] is the answer
         $question = GameMaker::saveResponse(Array('link'=>$link,'response'=>$params[1]));
         echo "save success";
       }
+}else if($params[0] == 'winner'){//get the winner id
+
+    $winner = GameMaker::theWinerIS(Array('link'=>$link));
+    if ($winner == 1) {
+        if (GameMAker::getSessionPlayerId() == 1) {
+            echo "you win";
+        }
+        echo "you lose";    
+    }else if ($winner == 2) {
+        if (GameMAker::getSessionPlayerId() == 2) {
+            echo "you win";
+        }
+        echo "you lose";    
+    }else{
+        echo "withdraw";    
+    }
 }
 
 

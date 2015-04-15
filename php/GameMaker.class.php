@@ -216,6 +216,9 @@ class GameMaker{
         $_SESSION["player"]=2;
         }
     }
+    public static function getSessionPlayerId(){
+        return $_SESSION['player'];
+    }
 
 
 }
