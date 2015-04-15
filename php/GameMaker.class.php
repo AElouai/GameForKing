@@ -194,12 +194,14 @@ class GameMaker{
         }
         if ($player2 > $player1) {
             $score = $player2*5;
-            User::setScore(Array("link"=>$link,"score"=>$score))
-            return 2;
+            $userID = 0;//
+            User::setScore(Array("link"=>$link,"score"=>$score,"userID"=>$userID));
+            return 2;//player 2 win
         }elseif ($player1 > $player2) {
-            $score = $player2*5;
-            User::setScore(Array("link"=>$link,"score"=>$score))
-            return 1;
+            $score = $player1*5;
+            $userID = 0;//
+            User::setScore(Array("link"=>$link,"score"=>$score,"userID"=>$userID));
+            return 1;//player 1 win
         }else{
             return 0;//egality
         }

@@ -32,10 +32,10 @@ Class User{
         $user_id = $input['userID'];
         $score = $input["score"] + User::getScore($input);
         $link->query("UPDATE users SET score = $score where userID = $user_id ");
-        if($link->Affected_rows){//just in case
+        /*if($link->Affected_rows){//just in case
             return true;
         }
-        return false;
+        return false;*///i putt in comment for now for debug 
     }
     public static function getPlayerinfo($input){
       $user_id = (isset($input['userId']))?$input['userId']:User::getUserId();
