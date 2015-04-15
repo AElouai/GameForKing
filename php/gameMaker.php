@@ -18,7 +18,6 @@ else if($params[0] == 'status'){//fetching status to play
     if(!empty(GameMaker::getQueueId())){
         if(!User::isPlaying(Array('link'=>$link))){
             if(GameMaker::findOpponent(Array('link'=>$link))){//okey we found an oponent
-
                 echo "opponentFound";
             }else{
                 echo "opponentNotFound";
@@ -39,8 +38,12 @@ else if($params[0] == 'fetch'){//fetch the question @params[2]
         echo json_encode($question);
       }
 }
-else if($params[0] == 'fetch'){//save player's answer to the database
-//ok i got this later 
+else if($params[0] == 'save'){//save player's answer to the database
+if($params[1] !== NULL){//params[1] is the answer 
+        $question = GameMaker::saveResponse(Array('link'=>$link,'response'=>$params[1]));
+        echo "save success";
+      }
 }
+
 
 ?>
