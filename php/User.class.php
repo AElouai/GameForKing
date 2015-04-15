@@ -27,9 +27,9 @@ Class User{
         return 0;
     }
 
-    public static function setScore($input){//need link and score to set the score
+    public static function setScore($input){//need link and score and iduser to set the score
         $link = $input['link'];
-        $user_id = (isset($input['userId']))?$input['userId']:User::getUserId();
+        $user_id = $input['userID'];
         $score = $input["score"] + User::getScore($input);
         $link->query("UPDATE users SET score = $score where userID = $user_id ");
         if($link->Affected_rows){//just in case
