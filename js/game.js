@@ -4,7 +4,7 @@ var GameOn = function(obj){//TODO remove all console.log (when done) beause it c
     var game_status = 'SEARCH';
     var question = 0;
     this.init = function(){//the function that will be called from the outside
-        this.startSearch();
+        this.startSearch();//ok my bad i should chek out JS from the start 
         this.heartBeat();
     };
     this.startSearch = function(){
