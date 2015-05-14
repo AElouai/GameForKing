@@ -13,6 +13,7 @@
 	$routes = array('home',
                     'profile',
                     'go',
+                    'add','addToDB',//ToReview just for the moment 
                     'game',
                     'signup',
 					'signin',
