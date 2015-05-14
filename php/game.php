@@ -12,7 +12,7 @@ if(User::isPlaying(Array('link'=>$link))){
         var subs = '<?php echo $subjects; ?>';
         var go = new GameOn({
             subjects:subs,
-            delay:1000
+            delay:1000//TODO delay need to be view :D
         });
         window.addEventListener("beforeunload", function(event) {
             event.returnValue = "do you really want to leave ?";
