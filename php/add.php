@@ -1,5 +1,5 @@
 <div class="fluid-container">
-	<form action="addToDB" method="post">
+	<form action="/addToDB" method="POST">
 		<div class="row">
 			<div clas="row">
 				<div class="col-xs-6 col-md-2">
@@ -14,7 +14,7 @@
 					Subject :
 				</div>
 				<div class="col-xs-6 col-md-10">
-					<select multiple id="Subjects" name="Subjects" size="10">
+					<select multiple id="subjects" name="subjects" size="10">
 					  <option value="1">Math</option>
 					  <option value="2">Physics</option>
 					  <option value="3">Chemistry</option>
@@ -67,12 +67,12 @@
 				Answer :
 			</div>
 			<div class="col-md-6 col-xs-8">
-				<input type="text" id="Answer"  class="form-control" name="Answer" >
+				<input type="text" id="Answer"  class="form-control" name="answer" >
 			</div>
 			<div class="col-md-4 center-block col-xs-12">
 				<input type="submit" class="btn btn-primary" valeu="valider">
 			</div>
 		</div>
-		
-	</form>	
+
+	</form>
 </div>

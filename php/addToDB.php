@@ -1,18 +1,37 @@
 <?php
-$description = $_POST["question"];
-$Subject =$_POST["Subjects"];
-$Answer = $_POST["Answer"];
-$option1 = $_POST["option1"];
-$option2 = $_POST["option2"];
-$option3 = $_POST["option3"];
-$option4 = $_POST["option4"];
-$option5 = $_POST["option5"];
-$option6 = $_POST["option6"];
-$option7 = $_POST["option7"];
-//i got lost 
-$link->query("INSERT into questions(description,idAnswer,idRelated) VALUES('$description','$idAnswer','$idRelated')");
-$link->query("INSERT into questionrelated(idQuestion,idSubject) VALUES('$idQuestion','$idSubject')");
+$description = $_POST["question"];//@TODO clean these
+$subjects =$_POST["subjects"];
+$answer = $_POST["answer"];
+$options[0] = $_POST["option1"];
+$options[1] = $_POST["option2"];
+$options[2] = $_POST["option3"];
+$options[3] = $_POST["option4"];
+$options[4] = $_POST["option5"];
+$options[5] = $_POST["option6"];
+$options[6] = $_POST["option7"];
 
-$idAnswer = $_POST["idAnswer"];
-$idRelated = $_POST["idRelated"];
+//we create a question first
+$link->query("INSERT INTO questions(description) values('".$description."')");
+$questionID = $link->insert_id;
+
+//now tag the question to related subjects
+foreach($subjects as $subject){
+  $link->query("INSERT INTO questionrelated(idQuestion,idSubject) values('".$questionID."','".$subject."')");
+}
+
+//insert correct answer
+$link->query("INSERT INTO questionoptions(idQuestion,answer) values('".$questionID."','".$answer."')");
+$correctAnswerID = $link->insert_id;
+
+//insert other options
+foreach($options as $option){
+  if(isset($option) && !empty($option))
+    $link->query("INSERT INTO questionoptions(idQuestion,answer) values('".$questionID."','".$option."')");
+}
+
+//now update the question and point idAnswer to $correctAnswerID :D
+$link->query("UPDATE questions SET idAnswer='".$correctAnswerID."' WHERE id='".$questionID."'");
+
+setAlert('success','well, i think everything went well.i hope :p');
+
 ?>
