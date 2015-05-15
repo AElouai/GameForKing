@@ -1,6 +1,6 @@
 <?php
 $description = $_POST["question"];//@TODO clean these
-$subjects =$_POST["subjects"];
+$subjects = $_POST["subjects"];
 $answer = $_POST["answer"];
 $options[0] = $_POST["option1"];
 $options[1] = $_POST["option2"];
@@ -9,6 +9,14 @@ $options[3] = $_POST["option4"];
 $options[4] = $_POST["option5"];
 $options[5] = $_POST["option6"];
 $options[6] = $_POST["option7"];
+
+echo "subjects: ";
+print_r($subjects);
+
+echo "</br>".$description."</br>";
+echo "answer: ".$answer."</br>";
+echo "other options: </br>";
+print_r($options);
 
 //we create a question first
 $link->query("INSERT INTO questions(description) values('".$description."')");

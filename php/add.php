@@ -14,7 +14,7 @@
 					Subject :
 				</div>
 				<div class="col-xs-6 col-md-10">
-					<select multiple id="subjects" name="subjects" size="10">
+					<select multiple="multiple" id="subjects" name="subjects[]" size="10">
 					  <option value="1">Math</option>
 					  <option value="2">Physics</option>
 					  <option value="3">Chemistry</option>
