@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 25 Avril 2015 à 15:29
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Ven 15 Mai 2015 à 18:01
+-- Version du serveur :  5.6.16
+-- Version de PHP :  5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `battledetail` (
   `idBattle` int(11) NOT NULL,
   `idGame` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=61 ;
 
 --
 -- Contenu de la table `battledetail`
@@ -92,7 +92,12 @@ INSERT INTO `battledetail` (`id`, `idBattle`, `idGame`) VALUES
 (52, 11, 52),
 (53, 11, 53),
 (54, 11, 54),
-(55, 11, 55);
+(55, 11, 55),
+(56, 12, 56),
+(57, 12, 57),
+(58, 12, 58),
+(59, 12, 59),
+(60, 12, 60);
 
 -- --------------------------------------------------------
 
@@ -105,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `battles` (
   `idPlayer1` int(11) NOT NULL,
   `idPlayer2` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `battles`
@@ -113,8 +118,7 @@ CREATE TABLE IF NOT EXISTS `battles` (
 
 INSERT INTO `battles` (`id`, `idPlayer1`, `idPlayer2`) VALUES
 (1, 16, 1),
-(10, 1, 16),
-(11, 17, 18);
+(12, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -128,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `games` (
   `player1Answer` int(11) DEFAULT NULL,
   `player2Answer` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=61 ;
 
 --
 -- Contenu de la table `games`
@@ -178,18 +182,23 @@ INSERT INTO `games` (`id`, `idQuestion`, `player1Answer`, `player2Answer`) VALUE
 (41, 2, NULL, NULL),
 (42, 5, NULL, NULL),
 (43, 4, NULL, NULL),
-(44, 3, NULL, NULL),
-(45, 1, NULL, NULL),
-(46, 3, NULL, NULL),
-(47, 5, NULL, NULL),
+(44, 1, NULL, NULL),
+(45, 3, NULL, NULL),
+(46, 4, NULL, NULL),
+(47, 1, NULL, NULL),
 (48, 2, NULL, NULL),
-(49, 4, NULL, NULL),
-(50, 1, NULL, NULL),
-(51, 4, NULL, NULL),
-(52, 2, NULL, NULL),
-(53, 3, NULL, NULL),
+(49, 5, NULL, NULL),
+(50, 3, NULL, NULL),
+(51, 5, NULL, NULL),
+(52, 3, NULL, NULL),
+(53, 2, NULL, NULL),
 (54, 1, NULL, NULL),
-(55, 5, NULL, NULL);
+(55, 4, NULL, NULL),
+(56, 3, NULL, NULL),
+(57, 1, NULL, NULL),
+(58, 5, NULL, NULL),
+(59, 4, NULL, NULL),
+(60, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `questionoptions` (
   `answer` varchar(100) COLLATE utf16_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `answer` (`answer`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `questionoptions`
@@ -227,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `questionrelated` (
   `idQuestion` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `questionrelated`
@@ -250,20 +259,20 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` text COLLATE utf16_unicode_ci NOT NULL,
   `idAnswer` int(11) NOT NULL,
-  `idRelated` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `questions`
 --
 
-INSERT INTO `questions` (`id`, `description`, `idAnswer`, `idRelated`) VALUES
-(1, '1+1=?', 2, 1),
-(2, '2-1=?', 1, 1),
-(3, '5-5=?', 3, 1),
-(4, '9-6=?', 4, 1),
-(5, '9-0=?', 5, 1);
+INSERT INTO `questions` (`id`, `description`, `idAnswer`) VALUES
+(1, '1+1=?', 2),
+(2, '2-1=?', 1),
+(3, '5-5=?', 3),
+(4, '9-6=?', 4),
+(5, '9-0=?', 5),
+(6, '', 0);
 
 -- --------------------------------------------------------
 
@@ -276,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
   `idUser` int(11) NOT NULL,
   `queueDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -289,23 +298,23 @@ CREATE TABLE IF NOT EXISTS `queuedetail` (
   `idQueue` int(11) NOT NULL,
   `idSubject` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=96 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `queuedetail`
 --
 
 INSERT INTO `queuedetail` (`id`, `idQueue`, `idSubject`) VALUES
-(86, 24, 1),
-(87, 25, 1),
-(88, 26, 1),
-(89, 27, 1),
-(90, 28, 1),
-(91, 29, 1),
-(92, 26, 0),
-(93, 27, 1),
-(94, 28, 1),
-(95, 29, 0);
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 1),
+(6, 5, 2),
+(7, 1, 1),
+(8, 2, 1),
+(9, 3, 1),
+(10, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -360,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `isPlaying` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `users`
@@ -371,9 +380,7 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `Fuid`, `email`, `login`, `p
 (12, NULL, NULL, NULL, 'happy', NULL, 'c2e7f00efaf0222b9856c1b10e45371e', 0, '0000-00-00', 0),
 (14, NULL, NULL, NULL, 'happy-ali@live.fr', NULL, 'c320386f8abf01869bf60345e6c2ad30', 0, '0000-00-00', 0),
 (15, NULL, NULL, NULL, 'ali.elouai.pro@gmail.com', NULL, '131c4d1d50214b6d1cabe5e142b70db9', 0, '0000-00-00', 0),
-(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 1),
-(17, 'herp', 'derp', NULL, '1234@1234', NULL, '64d9aaa819e78740513074ee6a4dfbb0', 0, '0000-00-00', 1),
-(18, 'herp', 'derp', NULL, '123@123', NULL, '2063a0c785e8062cf05f455f1e4933a1', 0, '0000-00-00', 1);
+(16, 'amine2', 'hakkou2', 9, 'q5g@hotmail.fr', 'test2', '889427e907dbb18fc2016ebae8ddfeaf', 546, '2015-03-11', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
