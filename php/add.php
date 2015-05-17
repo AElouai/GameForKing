@@ -30,6 +30,7 @@
 					  <option value="13">Art</option>
 					  <option value="14">Politics</option>
 					  <option value="15">Fitness</option>
+					  <option value="16">Anime</option>
 					</select>
 				</div>
 			</div>

@@ -247,6 +247,22 @@ if(!isset($isIndex))die('');
                 </div>
             </div>
         </div>
+        <div class="col-sm-2 col-xs-4">
+            <div class="tile">
+                <div class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/img/Anime.png" class="img-responsive"/>
+                        </div>
+                        <div class="item caption">
+                            <h3 class="tilecaption">Anime</h3>
+                            <h3 class="hidden tileValue">16</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="play-tile">
